@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Ailerons';
+    src: url(fonts/Ailerons-TrialVersion.otf) format('opentype');
+}
+
+body{
+    background-color: #121212;
+}
+
+.banner h1{
+    position: relative;
+    top: 18px;
+    left: 10px;
+    color: #ffffff;
+    font-family: 'Ailerons', sans-serif;
+    font-size: 40px;
+}
+
+.banner img{
+    position: relative;
+    float: left;
+    height: 80px;
+    width: 80px;
+}
+
+#bannerLine{
+    position: relative;
+    margin: auto;
+    width: 100%;
+}
+
