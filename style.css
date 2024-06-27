@@ -2,10 +2,19 @@
   font-family: "Ailerons";
   src: url(fonts/Ailerons-TrialVersion.otf) format("opentype");
 }
+* {
+  box-sizing: border-box;
+}
 
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
   background-color: #121212;
 }
+
+
 
 #bannerHeader {
   position: relative;
@@ -14,6 +23,7 @@ body {
   color: white;
   font-family: "Ailerons", sans-serif;
   font-size: 40px;
+  overflow: hidden;
 }
 
 #warframeBannerImg {
@@ -28,16 +38,21 @@ body {
 }
 
 #bannerLine {
-  position: relative;
-  top: -30px;
-  margin: auto;
+  position: absolute;
+  top: 78px;
+  left: 0;
+  right: 0;
+  margin: 0;
   width: 100%;
 }
 
 #modsToggleButton {
   font-family: "Ailerons", sans-serif;
-  color: black;
+  color: white;
   font-size: 20px;
+  top: 42px;
+  right: 10px;
+  position: absolute;
   align-items: center;
   border: none;
   display: flex;
@@ -45,7 +60,7 @@ body {
   padding-right: 5px;
   padding-left: 0px;
   float: right;
-  background-color: white;
+  background-color: transparent;
   transition: transform 0.2s ease;
 }
 
@@ -60,5 +75,26 @@ body {
 #anyPolarity {
   height: 25px;
   width: 25px;
-  transition: transform 0.2s ease;
+  transition: transform 0.5s ease;
 }
+
+.modsSidebar {
+  position: fixed;
+  right: -551px; 
+  top: 80px;
+  width: 550px; 
+  height: 90vh;
+  background-color: #181818;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: right 0.5s; 
+  padding-top: 60px;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.modsSidebar.open {
+  right: 0px;
+}
+
