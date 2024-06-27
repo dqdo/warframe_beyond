@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 
 <html>
-
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/warframe_logo.ico" />
     <title>Warframe Beyond</title>
-    <link rel = "stylesheet" href = "style.css">
-</head>
+    <script src="index.js" defer></script>
+  </head>
 
-<body>
-    <script src="index.js"></script>
-    <div class = "banner">
-        <img src = "images/warframe_logo.png">
-        <h1>Warframe Beyond</h1>    
+  <body>
+    <div class="bannerHeader">
+      <img src="images/warframe_logo.png" id="warframeBannerImg" />
+      <h1 id="bannerHeader">Warframe Beyond</h1>
+      <hr id="bannerLine" />
     </div>
-    <hr id = "bannerLine">
-</body>
 
+    <div class="modsSection">
+      <div class="modsButton">
+        <button onclick="modsToggleButtonAnimation()" id="modsToggleButton">
+          <svg
+            id="anyPolarity"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <g>
+              <path
+                fill="#FF0000"
+                d="M33.9,14.8c5.4,6.2,2.6,29.5-24.8,36C35.8,55,49.6,36.6,47.4,22.2C45.7,18.4,37.9,14.8,33.9,14.8z"
+              />
+              <path
+                fill="#FF0000"
+                d="M18.2,37.3c-5.4-6.2-2.6-29.5,24.8-36C16.3-2.9,2.5,15.5,4.7,29.9C6.4,33.7,14.2,37.3,18.2,37.3z"
+              />
+            </g>
+          </svg>
+          Mods
+        </button>
+      </div>
+    </div>
+  </body>
 </html>
