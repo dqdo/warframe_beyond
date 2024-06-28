@@ -19,7 +19,7 @@
 
     <div class="modsSection">
       <div class="modsButton">
-        <button onclick="modsToggleButtonAnimation()" id="modsToggleButton">
+        <button onclick="modsToggle()" id="modsToggleButton">
           <svg
             id="anyPolarity"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,8 +38,51 @@
           </svg>
           Mods
         </button>
-        <div id = "modsSidebar" class="modsSidebar">
-          <!-- Mods Stuff -->
+      </div>
+      <div id="modsSidebar" class="modsSidebar">
+        <div id="modsSearchbar" class="modsSearchbar">
+          <!-- Content  -->
+        </div>
+        <div id = "modsFilter" class = "modsFilter">
+          <div class = "filterContainer">
+        <label>
+          <span> Polarity </span>
+          <button id = "polarityFilter">
+            A
+            <img src="images/down-arrow-svgrepo-com.svg"/>
+          </button>
+          
+        </label>
+
+        <label><span> Type </span>
+          <button id = "modsTypeFilter">
+            AB
+            <img src="images/down-arrow-svgrepo-com.svg"/>
+          </button>
+        </label>
+          
+        <label><span> Rarity </span>
+          <button id = "modsRarityFilter">
+            ABC
+            <img src="images/down-arrow-svgrepo-com.svg"/>
+          </button>
+        </label>
+
+        <label><span> Game Mode </span>
+          <button id = "modsGamemodeFilter"> 
+            ABCD
+            <img src="images/down-arrow-svgrepo-com.svg"/>
+          </button>
+        </label>
+          
+        <label><span> Sort </span>
+          <button id = "modsSortFilter">
+            ABCDE
+            <img src="images/down-arrow-svgrepo-com.svg"/>
+          </button>
+        </label>
+        </div>
+      </div>
       </div>
     </div>
   </body>

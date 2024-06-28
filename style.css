@@ -89,7 +89,7 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   transition: right 0.5s; 
-  padding-top: 60px;
+  padding-top: 10px;
   border-left: 1px solid white;
   border-bottom: 1px solid white;
 }
@@ -97,4 +97,58 @@ html, body {
 .modsSidebar.open {
   right: 0px;
 }
+
+.modsSearchbar {
+  padding: 15px;
+  background-color: #202020;
+  color: white;
+  border: 1px solid #333;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: text;
+}
+
+.filterContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 1px; 
+}
+
+#modsFilter label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#modsFilter label span{
+  font-family: Roboto;
+  font-size: small;
+  margin-bottom: 1px;
+}
+
+#modsFilter label button{
+  width: 80px;
+  font-family: Roboto;
+  font-size: 10px;
+  color: white;
+  height: 18px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  align-items: right;
+  border: 1px solid #333;
+  background-color: #202020;
+  cursor: pointer;
+  float: right;
+}
+
+#modsFilter label button img {
+  height: 12px; 
+  width: auto; 
+  float: right;
+  margin-left: 5px; 
+}
+
+
 

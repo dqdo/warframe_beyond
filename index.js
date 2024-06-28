@@ -1,8 +1,9 @@
-function modsToggleButtonAnimation() {
+function modsToggle() {
   const svg = document.getElementById("anyPolarity");
   const paths = svg.getElementsByTagName("path");
   const sidebar = document.getElementById('modsSidebar');
 
+  //Toggle mods sidebar
    sidebar.classList.toggle('open');
 
   // Toggle SVG Rotation for any_polarity.svg
