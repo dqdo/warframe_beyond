@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+/* Setting */
 html, body {
   margin: 0;
   padding: 0;
@@ -14,8 +15,7 @@ html, body {
   background-color: #121212;
 }
 
-
-
+/* Banner header which includes the warframe logo and the "Warframe Beyond" header */
 #bannerHeader {
   position: relative;
   top: -7px;
@@ -46,30 +46,45 @@ html, body {
   width: 100%;
 }
 
-#modsToggleButton {
+/* All button toggles which include: Archon Shards, Mods, and Arcanes */
+
+/* Aligns and positions buttons */
+.buttonTogglesContainer{
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 10px;
+  position: absolute;
+  top: 25px;
+  right: 5px;
+
+}
+
+/* Stylizing buttons*/
+#arcanesToggleButton,#archonToggleButton, #modsToggleButton {
   font-family: "Ailerons", sans-serif;
   color: white;
   font-size: 20px;
-  top: 42px;
-  right: 10px;
-  position: absolute;
-  align-items: center;
   border: none;
   display: flex;
+  align-items: center;
   cursor: pointer;
-  padding-right: 5px;
-  padding-left: 0px;
-  float: right;
   background-color: transparent;
   transition: transform 0.2s ease;
 }
 
-#modsToggleButton:active {
-  transform: scale(0.96);
+#archontoggleButton, #modsToggleButton svg, #arcanesToggleButton img {
+  margin-right: 5px; 
 }
 
-.rotatedAnyPolarity {
-  transform: rotate(180deg);
+#arcanesToggleButton img{
+  width: 40px;
+  height: 40px;
+}
+
+#archonToggleButton img{
+  width: 40px;
+  height: 40px;
 }
 
 #anyPolarity {
@@ -78,6 +93,18 @@ html, body {
   transition: transform 0.5s ease;
 }
 
+/* Button animations */
+#archonToggleButton:active, #modsToggleButton:active, #arcanesToggleButton:active {
+  transform: scale(0.96);
+}
+
+.rotatedAnyPolarity {
+  transform: rotate(180deg);
+}
+
+
+/* Mods Section */
+/* Stylizing the mods sidebar which is toggled by the mods toggle button */
 .modsSidebar {
   position: fixed;
   right: -551px; 
@@ -108,25 +135,29 @@ html, body {
   cursor: text;
 }
 
+/* Aligns and positions buttons */
 .filterContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   gap: 1px; 
 }
 
-#modsFilter label {
+/* Aligns buttons */
+#modsFilter #modsDropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#modsFilter label span{
+/* Stylize text */
+#modsFilter #modsDropdown span{
   font-family: Roboto;
   font-size: small;
   margin-bottom: 1px;
 }
 
-#modsFilter label button{
+/* Stylize buttons */
+#modsFilter #modsDropdown button{
   width: 80px;
   font-family: Roboto;
   font-size: 10px;
@@ -143,12 +174,9 @@ html, body {
   float: right;
 }
 
-#modsFilter label button img {
+#modsFilter #modsDropdown button img {
   height: 12px; 
   width: auto; 
   float: right;
   margin-left: 5px; 
 }
-
-
-
