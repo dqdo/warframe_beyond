@@ -18,3 +18,44 @@ function modsToggle() {
     }
   }
 }
+
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  const content = dropdown.querySelector(".dropdown-content");
+
+  if (content.classList.contains("show")) {
+    content.classList.remove("show");
+  } else {
+    
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove("show");
+    }
+
+    content.classList.add("show");
+  }
+
+}
+
+function setDropdownOption(event, buttonId, optionText) {
+  event.preventDefault();
+  const button = document.getElementById(buttonId);
+  const arrowImg = button.querySelector("img");
+  const textSpan = button.querySelector(".button-text");
+  button.innerText = optionText;
+  button.appendChild(arrowImg);
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches(".dropbutton")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      const openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+}
+
+

@@ -58,41 +58,73 @@
       </div>
       <div id="modsFilter" class="modsFilter">
         <!-- This div contains all the button filters for the mods -->
-        <div id="modsFilter" class="filterContainer">
-          <div class="dropdown" id="modsDropdown">
+        <div class="filterContainer">
+          <div class="dropdown" id="polarityDropdown">
             <span> Polarity </span>
-            <button id="polarityFilter">
-              A
-              <img src="images/misc/down-arrow-svgrepo-com.svg" />
+            <button onclick="toggleDropdown('polarityDropdown')" class="dropbutton" id="polarityFilter">
+              All
+              <img id = "downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
             </button>
+            <div class="dropdown-content">
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'All')">All</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Madurai')">Madurai</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Vazarin')">Vazarin</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Naramon')">Naramon</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Zenurik')">Zenurik</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Precept')">Precept</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Unairu')">Unariu</a>
+              <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Umbra')">Umbra</a>
+            </div>
           </div>
-          <div class="dropdown" id="modsDropdown">
+          <div class="dropdown" id="typeDropdown">
             <span> Type </span>
-            <button id="modsTypeFilter">
-              AB
-              <img src="images/misc/down-arrow-svgrepo-com.svg" />
+            <button onclick="toggleDropdown('typeDropdown')" class="dropbutton" id="modsTypeFilter">
+              Mods
+              <img id = "downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
             </button>
+            <div class="dropdown-content">
+              <a href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Mods')">Mods</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Aura')">Aura</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Exilus')">Exilus</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Stance')">Stance</a>
+            </div>
           </div>
-          <div class="dropdown" id="modsDropdown">
+          <div class="dropdown" id="rarityDropdown">
             <span> Rarity </span>
-            <button id="modsRarityFilter">
-              ABC
-              <img src="images/misc/down-arrow-svgrepo-com.svg" />
+            <button onclick="toggleDropdown('rarityDropdown')" class="dropbutton" id="modsRarityFilter">
+              All
+              <img id = "downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
             </button>
+            <div class="dropdown-content">
+              <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'All')">All</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Common')">Common</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Uncommon')">Uncommon</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Rare')">Rare</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Legendary')">Legendary</a>
+            </div>
           </div>
-          <div class="dropdown" id="modsDropdown">
+          <div class="dropdown" id="gameModeDropdown">
             <span> Game Mode </span>
-            <button id="modsGamemodeFilter">
-              ABCD
-              <img src="images/misc/down-arrow-svgrepo-com.svg" />
+            <button onclick="toggleDropdown('gameModeDropdown')" class="dropbutton" id="modsGamemodeFilter">
+              PVE
+              <img id = "downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
             </button>
+            <div class="dropdown-content">
+              <a href="#" onclick="setDropdownOption(event, 'modsGamemodeFilter', 'PVE')">PVE</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsGamemodeFilter', 'Conclave')">Conclave</a>
+            </div>
           </div>
-          <div class="dropdown" id="modsDropdown">
+          <div class="dropdown" id="sortDropdown">
             <span> Sort </span>
-            <button id="modsSortFilter">
-              ABCDE
-              <img src="images/misc/down-arrow-svgrepo-com.svg" />
+            <button onclick="toggleDropdown('sortDropdown')" class="dropbutton" id="modsSortFilter">
+              Name
+              <img id = "downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
             </button>
+            <div class="dropdown-content">
+              <a href="#" onclick="setDropdownOption(event, 'modsSortFilter', 'Name')">Name</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsSortFilter', 'Drain')">Drain</a>
+              <a href="#" onclick="setDropdownOption(event, 'modsSortFilter', 'Max Rank')">Max Rank</a>
+            </div>
           </div>
         </div>
       </div>

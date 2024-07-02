@@ -143,21 +143,21 @@ html, body {
 }
 
 /* Aligns buttons */
-#modsFilter #modsDropdown {
+#modsFilter .dropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 /* Stylize text */
-#modsFilter #modsDropdown span{
+#modsFilter .dropdown span{
   font-family: Roboto;
   font-size: small;
   margin-bottom: 1px;
 }
 
 /* Stylize buttons */
-#modsFilter #modsDropdown button{
+#modsFilter .dropdown button{
   width: 80px;
   font-family: Roboto;
   font-size: 10px;
@@ -174,9 +174,51 @@ html, body {
   float: right;
 }
 
-#modsFilter #modsDropdown button img {
+#modsFilter .dropdown button img {
   height: 12px; 
   width: auto; 
   float: right;
   margin-left: 5px; 
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  font: Roboto;
+  font-size: 10px;
+  position: absolute;
+  background-color: #202020;
+  top: 100%;
+  left: 50%; 
+  transform: translateX(-50%);
+  border-radius: 5px;
+  text-align: center;
+
+}
+
+.dropdown-content a {
+  color: white;
+  width: 80px;
+  padding: 1px 1px;
+  font-family: Roboto;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: black;
+}
+
+.show {
+  display: block;
+}
+
+#downArrowImg{
+  pointer-events: none;
+}
+
