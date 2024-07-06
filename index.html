@@ -19,18 +19,18 @@
       <hr id="bannerLine" />
     </div>
     <!----->
-    <!-- This div contains all the button toggles for each section: Archon Shards, Arcanes, and Mods -->
+    <!-- From here, this section contains all the button toggles for each section: Archon Shards, Arcanes, and Mods -->
     <div class="buttonTogglesContainer">
-      <button onclick="archonShardsToggle()" id="archonToggleButton">
+      <button onclick="archonShardsToggle()" id="archonToggleButton" >
         <img src="images/archon_shards/archon_shard.png" />
         Archon Shards
       </button>
 
-      <button onclick="arcanesToggle()" id="arcanesToggleButton">
+      <button onclick="arcanesToggle('arcanesSidebar')" id="arcanesToggleButton">
         <img src="images/arcanes/arcane_icon.png" />
         Arcanes
       </button>
-      <button onclick="modsToggle()" id="modsToggleButton">
+      <button onclick="modsToggle('modsSidebar')" id="modsToggleButton">
         <svg
           id="anyPolarity"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@
     </div>
     <!----->
     <!-- This div contains the mods sidebar -->
-    <div id="modsSidebar" class="modsSidebar">
+    <div id="modsSidebar" class="sidebar">
       <div id="modsSearchbar" class="modsSearchbar">
         <!-- Content  -->
       </div>
@@ -131,11 +131,16 @@
     </div>
     <!----->
     <!-- This div contains the arcanes sidebar -->
-    <div id="arcanesSidebar" class="arcanesSidebar">
+    <div id="arcanesSidebar" class="sidebar">
       <div id="arcanesSearchbar" class="arcanesSearchbar">
-        <!-- Content  -->
+        <!-- Content -->
       </div>
     </div>
     <!----->
+    <div id="archonSidebar" class="sidebar" >
+      <div id="archonSearchbar" class="archonSearchbar">
+        <!-- Content -->
+      </div>
+    </div>
   </body>
 </html>

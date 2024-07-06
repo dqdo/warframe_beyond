@@ -1,23 +1,65 @@
-// Toggles mods sidebar
-function modsToggle() {
+let openSidebarId = null;
+
+// Sets the SVG path color for mods sidebar
+function setSvgColor(color) {
   const svg = document.getElementById("anyPolarity");
   const paths = svg.getElementsByTagName("path");
-  const sidebar = document.getElementById('modsSidebar');
-
-  //Toggle mods sidebar
-   sidebar.classList.toggle('open');
-
-  // Toggle SVG Rotation for any_polarity.svg
-  svg.classList.toggle("rotatedAnyPolarity");
-
-  // Toggle SVG Color for any_polarity.svg
   for (let i = 0; i < paths.length; i++) {
-    if (paths[i].getAttribute("fill") === "#FF0000") {
-      paths[i].setAttribute("fill", "#00FF00");
-    } else {
-      paths[i].setAttribute("fill", "#FF0000");
-    }
+    paths[i].setAttribute("fill", color);
   }
+}
+
+//  Rotates SVG, specifically for the mods toggle. 
+function rotateSvg(shouldRotate) {
+  const svg = document.getElementById("anyPolarity");
+  if (shouldRotate) {
+    svg.classList.add("rotatedAnyPolarity");
+  } else {
+    svg.classList.remove("rotatedAnyPolarity");
+  }
+}
+
+
+function closeAllSidebars() {
+  const sidebars = document.querySelectorAll('.sidebar'); // Get all elements that are in the sidebar class
+  // Closes sidebars
+  sidebars.forEach(sidebar => {
+    sidebar.classList.remove('open');
+  });
+  setSvgColor("#FF0000"); // Set SVG color to red when closing all sidebars, specifically for mods sidebar
+  rotateSvg(false); // Reset SVG rotation for mods sidebar
+  openSidebarId = null; // Null since sidebars are closed
+}
+
+function toggleSidebar(id, shouldAffectSvg) {
+  const sidebar = document.getElementById(id);
+
+  // If a different sidebar is open (id isn't equal to different sidebar id), it calls closeAllSidebars() which sets the openSidebarID = null
+  if (openSidebarId !== id) {
+    closeAllSidebars();
+  }
+
+  const isOpen = sidebar.classList.toggle('open');
+
+  if (shouldAffectSvg) {
+    setSvgColor(isOpen ? "#00FF00" : "#FF0000"); // Set SVG color to green when opening the sidebar, red when closing
+    rotateSvg(isOpen); // Rotate SVG when opening the sidebar
+  }
+
+  // updates openSidebarID that the sidebar is open, if true then openSidebarID is equal to the id which the sidebar is opened
+  openSidebarId = isOpen ? id : null;
+}
+
+function modsToggle() {
+  toggleSidebar('modsSidebar', true); // Set true since modsSidebar has the svg
+}
+
+function arcanesToggle() {
+  toggleSidebar('arcanesSidebar', false); // Set false since arcanesToggle doesn't have the svg
+}
+
+function archonShardsToggle() {
+  toggleSidebar('archonSidebar', false); // Set false since archonShardsToggle doesn't have the svg
 }
 
 // Toggles the dropdown options

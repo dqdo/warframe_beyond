@@ -105,9 +105,9 @@ html, body {
 
 /* Mods Section */
 /* Stylizing the mods sidebar which is toggled by the mods toggle button */
-.modsSidebar {
+#modsSidebar, #arcanesSidebar, #archonSidebar {
   position: fixed;
-  right: -551px; 
+  right: -550px; 
   top: 80px;
   width: 550px; 
   height: 90vh;
@@ -121,11 +121,11 @@ html, body {
   border-bottom: 1px solid white;
 }
 
-.modsSidebar.open {
+#modsSidebar.open, #arcanesSidebar.open, #archonSidebar.open {
   right: 0px;
 }
 
-.modsSearchbar {
+#modsSearchbar, #arcanesSearchbar, #archonSearchbar {
   padding: 15px;
   background-color: #202020;
   color: white;
