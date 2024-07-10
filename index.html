@@ -22,7 +22,12 @@
     <!-- From here, this section contains all the button toggles for each section: Archon Shards, Arcanes, and Mods -->
     <div class="buttonTogglesContainer">
       <button onclick="archonShardsToggle()" id="archonToggleButton">
-        <img src="images/archon_shards/archon_shard.png" />
+        <img src="images/archon_shards/archon_shard.png" 
+        id = "archonIconImage"
+        />
+        <img src = "images/archon_shards/archon_shard_glow.png"
+        id = "archonIconImageGlow"
+        />
         Archon Shards
       </button>
 
@@ -62,7 +67,7 @@
       <div id="modsSearchbar" class="modsSearchbar">
         <!-- Content  -->
       </div>
-      <div id="modsFilter" class="modsFilter">
+      <div id="modsFilter" class="sidebarFilter">
         <!-- This div contains all the button filters for the mods -->
         <div class="filterContainer">
           <div class="dropdown" id="polarityDropdown">
@@ -283,6 +288,116 @@
       <div id="arcanesSearchbar" class="arcanesSearchbar">
         <!-- Content -->
       </div>
+      <div id="arcanesFilter" class="sidebarFilter">
+        <!-- This div contains all the button filters for the arcanes -->
+        <div class="filterContainer">
+          <div class="dropdown" id="arcanesRarityDropdown">
+            <span> Rarity </span>
+            <button
+              onclick="toggleDropdown('arcanesRarityDropdown')"
+              class="dropbutton"
+              id="arcanesRarityFilter"
+            >
+              All
+              <img
+                id="downArrowImg"
+                src="images/misc/down-arrow-svgrepo-com.svg"
+              />
+            </button>
+            <div class="dropdown-content">
+              <a
+                id="topOption"
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'All')"
+                >All</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Common')"
+                >
+                Common</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Uncommon')"
+                >
+                Uncommon</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Rare')"
+                >
+                Rare</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Legendary')"
+                >
+                Legendary</a
+              >
+            </div>
+          </div>
+          <div class="dropdown" id="arcanesTypeDropdown">
+            <span> Type </span>
+            <button
+              onclick="toggleDropdown('arcanesTypeDropdown')"
+              class="dropbutton"
+              id="arcanesTypeFilter"
+            >
+              All
+              <img
+                id="downArrowImg"
+                src="images/misc/down-arrow-svgrepo-com.svg"
+              />
+            </button>
+            <div class="dropdown-content">
+              <a
+                id="topOption"
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'All')"
+                >All</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'Warframe')"
+                >Warframe</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'Kitgun')"
+                >Kitgun</a
+              >
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'Zaw')"
+                >Zaw</a
+              >
+
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'Primary')"
+                >Primary</a
+              >
+
+              <a
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'Secondary')"
+                >Secondary</a
+              >
+
+              <a
+                id="bottomOption"
+                href="#"
+                onclick="setDropdownOption(event, 'arcanesTypeFilter', 'Melee')"
+                >Melee</a
+              >
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <!----->
     <div id="archonSidebar" class="sidebar">

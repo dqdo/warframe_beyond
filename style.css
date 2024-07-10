@@ -58,6 +58,7 @@ body {
   position: absolute;
   top: 5px;
   right: 5px;
+  background-color: transparent;
 }
 
 /* Stylizing buttons*/
@@ -75,7 +76,7 @@ body {
   transition: transform 0.2s ease;
 }
 
-#archontoggleButton,
+#archonToggleButton,
 #modsToggleButton svg,
 #arcanesToggleButton img {
   margin-right: 5px;
@@ -85,11 +86,24 @@ body {
 #arcanesToggleButton img {
   width: 60px;
   height: 60px;
+  background-color: transparent;
 }
 
-#archonToggleButton img {
+#archonIconImage {
   width: 40px;
   height: 40px;
+}
+
+#archonIconImageGlow{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+#archonToggleButton:hover #archonIconImageGlow{
+  opacity: 1;
 }
 
 #anyPolarity {
@@ -107,10 +121,6 @@ body {
 
 .rotatedAnyPolarity {
   transform: rotate(180deg);
-}
-
-#arcanesToggleButton:active {
-  background-image: url(images/arcanes/arcane_icon_active1.png);
 }
 
 /* Mods Section */
@@ -157,21 +167,21 @@ body {
 }
 
 /* Aligns buttons */
-#modsFilter .dropdown {
+.sidebarFilter .dropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 /* Stylize text */
-#modsFilter .dropdown span {
+.sidebarFilter .dropdown span {
   font-family: Roboto;
   font-size: small;
   margin-bottom: 1px;
 }
 
 /* Stylize buttons */
-#modsFilter .dropdown button {
+.sidebarFilter .dropdown button {
   width: 90px;
   font-family: Roboto;
   font-size: 10px;
@@ -189,7 +199,7 @@ body {
 }
 
 /* Down arrow image */
-#modsFilter .dropdown button img {
+.sidebarFilter .dropdown button img {
   height: 12px;
   width: auto;
   float: right;
@@ -217,7 +227,7 @@ body {
 }
 
 /* Dropdown options text */
-.dropdown-content a {
+.dropdown-content a{
   color: white;
   font-size: 10px;
   width: 90px;
@@ -228,7 +238,7 @@ body {
   text-align: center;
 }
 
-.dropdown-content a img {
+#modsFilter .dropdown-content a img {
   filter: invert(100%);
   margin-right: 3px;
   height: 10px;

@@ -1,5 +1,4 @@
 let openSidebarId = null; // Current sidebar opened
-let arcaneTimeouts = []; // To store the timeouts for arcane animation
 
 // Sets the SVG path color for mods sidebar
 function setSvgColor(color) {
@@ -24,6 +23,7 @@ function rotateSvg(shouldRotate) {
   }
 }
 
+let arcaneTimeouts = []; // To store the timeouts for arcane animation
 // Animation for when the arcanes sidebar button is toggled
 function arcaneIconAnimation(start) {
   const images = [
@@ -40,20 +40,21 @@ function arcaneIconAnimation(start) {
     arcaneTimeouts = [];
   }
 
-  // Play forward if start is true
+  // Play forward if start is true, meaning sidebar is on
   if (start) {
+    // Interates through image array
     images.forEach((src, index) => {
       // stores the ID of each timeout in arcaneTimeouts that is set by setTimeout
       arcaneTimeouts.push(
         // setTimeout is a JavaScript function that executes a specified function after a certain amount of time (in milliseconds).
         setTimeout(() => {
-          // Changes images
+          // Changes images src
           document.getElementById("arcaneIconImage").src = src;
-        }, index * 80)
+        }, index * 80) // In milliseconds
       );
     });
   } else {
-    // Play reverse if start is false
+    // Play reverse if start is false, meaning sidebar is off
     images.reverse().forEach((src, index) => {
       arcaneTimeouts.push(
         setTimeout(() => {
@@ -62,6 +63,19 @@ function arcaneIconAnimation(start) {
       );
     });
   }
+}
+
+// Makes the archon shard png glow
+function archonShardGlow(shouldAffectArchonShard){
+const img = document.getElementById("archonIconImageGlow");
+if(img){
+  if(shouldAffectArchonShard){
+  img.style.opacity = "1";
+  }
+  else{
+    img.style.opacity = "";
+  }
+}
 }
 
 function closeAllSidebars() {
@@ -76,10 +90,13 @@ function closeAllSidebars() {
     // Prevents the reverse animation from arcaneIconAnimation
     arcaneIconAnimation(false); // Stop arcane animation only if arcanesSidebar was open
   }
+  if (openSidebarId === "archonSidebar"){
+  archonShardGlow(false);
+  }
   openSidebarId = null; // Null since sidebars are closed
 }
 
-function toggleSidebar(id, shouldAffectSvg, shouldAffectArcanes) {
+function toggleSidebar(id, shouldAffectSvg, shouldAffectArcanes, shouldAffectArchonShard) {
   const sidebar = document.getElementById(id);
 
   // If a different sidebar is open, close all sidebars
@@ -101,20 +118,25 @@ function toggleSidebar(id, shouldAffectSvg, shouldAffectArcanes) {
     arcaneIconAnimation(isOpen); // Start or stop the arcane animation based on the sidebar state
   }
 
+  // Update archon glow if required
+  if(shouldAffectArchonShard){
+    archonShardGlow(isOpen);
+  }
+
   // Update the openSidebarId
   openSidebarId = isOpen ? id : null;
 }
 
 function modsToggle() {
-  toggleSidebar("modsSidebar", true, false); // Set true since modsSidebar has the svg, set false since modsSidebar doesn't have arcanes animation.
+  toggleSidebar("modsSidebar", true, false, false); 
 }
 
 function arcanesToggle() {
-  toggleSidebar("arcanesSidebar", false, true); // Set false since arcanesToggle doesn't have the svg, set true since arcanesSidebar does have arcanes animation.
+  toggleSidebar("arcanesSidebar", false, true, false); 
 }
 
 function archonShardsToggle() {
-  toggleSidebar("archonSidebar", false, false); // Set false since archonShardsToggle doesn't have the svg, set false since archonSidebar doesn't have arcanes animation.
+  toggleSidebar("archonSidebar", false, false, true);
 }
 
 // Toggles the dropdown options
@@ -184,3 +206,4 @@ window.onclick = function (event) {
     }
   }
 };
+
