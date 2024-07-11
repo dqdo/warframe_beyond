@@ -174,7 +174,7 @@ function setDropdownOption(event, buttonId, optionText) {
   const textSpan = document.createElement("span");
   textSpan.innerText = optionText;
   textSpan.style.fontFamily = "Roboto";
-  textSpan.style.fontSize = "10px";
+  textSpan.style.fontSize = "9px";
   textSpan.style.pointerEvents = "none";
 
   // Append the option image if it exists
@@ -183,12 +183,10 @@ function setDropdownOption(event, buttonId, optionText) {
     newImg.src = optionImg.src;
     newImg.style.height = "10px";
     newImg.style.width = "10px";
-    newImg.style.filter = "invert(100%)";
     newImg.style.marginRight = "3px";
     newImg.style.pointerEvents = "none";
     button.appendChild(newImg);
   }
-
   // Append the text span and the arrow image
   button.appendChild(textSpan);
   button.appendChild(arrowImg);

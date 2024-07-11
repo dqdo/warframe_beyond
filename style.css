@@ -155,6 +155,7 @@ body {
   color: white;
   border: 1px solid #333;
   margin: 10px;
+  width: auto;
   border-radius: 5px;
   cursor: text;
 }
@@ -182,7 +183,7 @@ body {
 
 /* Stylize buttons */
 .sidebarFilter .dropdown button {
-  width: 90px;
+  width: 95px;
   font-family: Roboto;
   font-size: 10px;
   color: white;
@@ -200,7 +201,7 @@ body {
 
 /* Down arrow image */
 .sidebarFilter .dropdown button img {
-  height: 12px;
+  height: 10px;
   width: auto;
   float: right;
   margin-left: 5px;
@@ -229,8 +230,8 @@ body {
 /* Dropdown options text */
 .dropdown-content a{
   color: white;
-  font-size: 10px;
-  width: 90px;
+  font-size: 9px;
+  width: 95px;
   padding: 1px 1px;
   font-family: Roboto;
   text-decoration: none;
@@ -239,8 +240,11 @@ body {
 }
 
 #modsFilter .dropdown-content a img {
-  filter: invert(100%);
-  margin-right: 3px;
+  height: 10px;
+  width: 10px;
+}
+
+#arcanesFilter .dropdown-content a img {
   height: 10px;
   width: 10px;
 }
