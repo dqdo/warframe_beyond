@@ -66,16 +66,15 @@ function arcaneIconAnimation(start) {
 }
 
 // Makes the archon shard png glow
-function archonShardGlow(shouldAffectArchonShard){
-const img = document.getElementById("archonIconImageGlow");
-if(img){
-  if(shouldAffectArchonShard){
-  img.style.opacity = "1";
+function archonShardGlow(shouldAffectArchonShard) {
+  const img = document.getElementById("archonIconImageGlow");
+  if (img) {
+    if (shouldAffectArchonShard) {
+      img.style.opacity = "1";
+    } else {
+      img.style.opacity = "";
+    }
   }
-  else{
-    img.style.opacity = "";
-  }
-}
 }
 
 function closeAllSidebars() {
@@ -90,13 +89,18 @@ function closeAllSidebars() {
     // Prevents the reverse animation from arcaneIconAnimation
     arcaneIconAnimation(false); // Stop arcane animation only if arcanesSidebar was open
   }
-  if (openSidebarId === "archonSidebar"){
-  archonShardGlow(false);
+  if (openSidebarId === "archonSidebar") {
+    archonShardGlow(false);
   }
   openSidebarId = null; // Null since sidebars are closed
 }
 
-function toggleSidebar(id, shouldAffectSvg, shouldAffectArcanes, shouldAffectArchonShard) {
+function toggleSidebar(
+  id,
+  shouldAffectSvg,
+  shouldAffectArcanes,
+  shouldAffectArchonShard
+) {
   const sidebar = document.getElementById(id);
 
   // If a different sidebar is open, close all sidebars
@@ -119,7 +123,7 @@ function toggleSidebar(id, shouldAffectSvg, shouldAffectArcanes, shouldAffectArc
   }
 
   // Update archon glow if required
-  if(shouldAffectArchonShard){
+  if (shouldAffectArchonShard) {
     archonShardGlow(isOpen);
   }
 
@@ -128,11 +132,11 @@ function toggleSidebar(id, shouldAffectSvg, shouldAffectArcanes, shouldAffectArc
 }
 
 function modsToggle() {
-  toggleSidebar("modsSidebar", true, false, false); 
+  toggleSidebar("modsSidebar", true, false, false);
 }
 
 function arcanesToggle() {
-  toggleSidebar("arcanesSidebar", false, true, false); 
+  toggleSidebar("arcanesSidebar", false, true, false);
 }
 
 function archonShardsToggle() {
@@ -204,4 +208,3 @@ window.onclick = function (event) {
     }
   }
 };
-

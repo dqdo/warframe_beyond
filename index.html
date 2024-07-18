@@ -21,7 +21,9 @@
     <!----->
     <!-- From here, this section contains all the button toggles for each section: Archon Shards, Arcanes, and Mods -->
     <div class="buttonTogglesContainer">
-      <button onclick="archonShardsToggle()" id="archonToggleButton">
+      <button 
+      onclick="archonShardsToggle()" 
+      id="archonToggleButton">
         <img src="images/archon_shards/archon_shard.png" 
         id = "archonIconImage"
         />
@@ -378,23 +380,22 @@
             <a
               href="#"
               onclick="setDropdownOption(event, 'archonColorOneFilter', 'Crimson')"
-              >Crimson</a
+              ><img src = "images/archon_shards/crimson_shard.png">Crimson</a
             >
             <a
               href="#"
               onclick="setDropdownOption(event, 'archonColorOneFilter', 'Amber')"
-              >Amber</a
+              ><img src = "images/archon_shards/amber_shard.png">Amber</a
             >
 
             <a
               id="bottomOption"
               href="#"
               onclick="setDropdownOption(event, 'archonColorOneFilter', 'Azure')"
-              >Azure</a
+              ><img src = "images/archon_shards/azure_shard.png">Azure</a
             >
           </div>
         </div>
-
         <div class ="dropdown" id = "archonColorTwoDrop">
           <span> Color 2 </span>
           <button
@@ -418,19 +419,19 @@
             <a
               href="#"
               onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Crimson')"
-              >Crimson</a
+              ><img src = "images/archon_shards/crimson_shard.png">Crimson</a
             >
             <a
               href="#"
               onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Amber')"
-              >Amber</a
+              ><img src = "images/archon_shards/amber_shard.png">Amber</a
             >
 
             <a
               id="bottomOption"
               href="#"
               onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Azure')"
-              >Azure</a
+              ><img src = "images/archon_shards/azure_shard.png">Azure</a
             >
           </div>
         </div>
@@ -472,5 +473,26 @@
       </div>
     </div>
     </div>
+    <div class = "statsPanel">
+      <div class = "statsDropdown">
+        Type:
+        <button class = "statsDropdownButton"> All <img
+          id="downArrowImg"
+          src="images/misc/down-arrow-svgrepo-com.svg"
+        /></button>
+      </div>
+      <div id = "buildText">        
+        New Build: <span> BLANK </span>
+    </div>  
+      <div class = "statsPanelContainer">
+        
+      <div class = "statsImgContainer">
+        <!-- Content -->
+      </div>  
+      </div>
+      
+    </div>
+
+
   </body>
 </html>

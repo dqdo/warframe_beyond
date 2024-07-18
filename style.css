@@ -25,6 +25,7 @@ body {
   font-family: "Ailerons", sans-serif;
   font-size: 40px;
   overflow: hidden;
+  user-select: none
 }
 
 #warframeBannerImg {
@@ -74,6 +75,7 @@ body {
   cursor: pointer;
   background-color: transparent;
   transition: transform 0.2s ease;
+  user-select: none
 }
 
 #archonToggleButton,
@@ -81,28 +83,32 @@ body {
 #arcanesToggleButton img {
   margin-right: 5px;
   background-color: transparent;
+  user-select: none
 }
 
 #arcanesToggleButton img {
   width: 60px;
   height: 60px;
   background-color: transparent;
+  user-select: none
 }
 
 #archonIconImage {
   width: 40px;
   height: 40px;
+  user-select: none
 }
 
-#archonIconImageGlow{
+#archonIconImageGlow {
   position: absolute;
   width: 40px;
   height: 40px;
   opacity: 0;
   transition: 0.5s ease;
+  user-select: none
 }
 
-#archonToggleButton:hover #archonIconImageGlow{
+#archonToggleButton:hover #archonIconImageGlow {
   opacity: 1;
 }
 
@@ -179,6 +185,7 @@ body {
   font-family: Roboto;
   font-size: small;
   margin-bottom: 1px;
+  user-select: none
 }
 
 /* Stylize buttons */
@@ -197,6 +204,7 @@ body {
   background-color: #202020;
   cursor: pointer;
   float: right;
+  user-select: none
 }
 
 /* Down arrow image */
@@ -206,6 +214,7 @@ body {
   float: right;
   margin-left: 5px;
   pointer-events: none;
+  user-select: none
 }
 
 .dropdown {
@@ -225,10 +234,11 @@ body {
   transform: translateX(-50%);
   border-radius: 5px;
   text-align: center;
+  user-select: none
 }
 
 /* Dropdown options text */
-.dropdown-content a{
+.dropdown-content a {
   color: white;
   font-size: 9px;
   width: 95px;
@@ -249,6 +259,11 @@ body {
   width: 10px;
 }
 
+#archonShardFilter .dropdown-content a img{
+  height: 10px;
+  width: 10px;
+}
+
 .dropdown-content a:hover {
   background-color: black;
 }
@@ -265,4 +280,65 @@ body {
 
 .show {
   display: block;
+}
+
+.statsPanel{
+  position: fixed;
+  top: 80px;
+  width: 320px;
+  height: 80vh;
+  background-color: #141414;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: right 0.5s;
+  padding-top: 10px;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.statsPanelContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: grid;
+  justify-content: center;
+  width: auto;
+}
+
+
+#buildText{
+  font-family: Roboto;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.statsImgContainer{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  background-color: transparent;
+  border: 1px solid rgb(145, 145, 145);
+}
+
+.statsDropdown{
+  padding-left: 5px;
+}
+.statsDropdownButton{
+
+  font-family: Roboto;
+  font-size: 15px;
+  color: white;
+  border: 1px solid #333;
+  background-color: #202020;
+  border-radius: 5px;
+  width: 150px;
+  justify-content: space-between;
+  align-items: right;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
 }
