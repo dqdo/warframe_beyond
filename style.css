@@ -2,6 +2,7 @@
   font-family: "Ailerons";
   src: url(fonts/Ailerons-TrialVersion.otf) format("opentype");
 }
+
 * {
   box-sizing: border-box;
 }
@@ -25,7 +26,7 @@ body {
   font-family: "Ailerons", sans-serif;
   font-size: 40px;
   overflow: hidden;
-  user-select: none
+  user-select: none;
 }
 
 #warframeBannerImg {
@@ -75,7 +76,7 @@ body {
   cursor: pointer;
   background-color: transparent;
   transition: transform 0.2s ease;
-  user-select: none
+  user-select: none;
 }
 
 #archonToggleButton,
@@ -83,20 +84,20 @@ body {
 #arcanesToggleButton img {
   margin-right: 5px;
   background-color: transparent;
-  user-select: none
+  user-select: none;
 }
 
 #arcanesToggleButton img {
   width: 60px;
   height: 60px;
   background-color: transparent;
-  user-select: none
+  user-select: none;
 }
 
 #archonIconImage {
   width: 40px;
   height: 40px;
-  user-select: none
+  user-select: none;
 }
 
 #archonIconImageGlow {
@@ -105,7 +106,7 @@ body {
   height: 40px;
   opacity: 0;
   transition: 0.5s ease;
-  user-select: none
+  user-select: none;
 }
 
 #archonToggleButton:hover #archonIconImageGlow {
@@ -185,7 +186,7 @@ body {
   font-family: Roboto;
   font-size: small;
   margin-bottom: 1px;
-  user-select: none
+  user-select: none;
 }
 
 /* Stylize buttons */
@@ -204,7 +205,7 @@ body {
   background-color: #202020;
   cursor: pointer;
   float: right;
-  user-select: none
+  user-select: none;
 }
 
 /* Down arrow image */
@@ -214,7 +215,7 @@ body {
   float: right;
   margin-left: 5px;
   pointer-events: none;
-  user-select: none
+  user-select: none;
 }
 
 .dropdown {
@@ -234,7 +235,8 @@ body {
   transform: translateX(-50%);
   border-radius: 5px;
   text-align: center;
-  user-select: none
+  user-select: none;
+  z-index: 1;
 }
 
 /* Dropdown options text */
@@ -259,7 +261,7 @@ body {
   width: 10px;
 }
 
-#archonShardFilter .dropdown-content a img{
+#archonShardFilter .dropdown-content a img {
   height: 10px;
   width: 10px;
 }
@@ -282,7 +284,7 @@ body {
   display: block;
 }
 
-.statsPanel{
+.statsPanel {
   position: fixed;
   top: 80px;
   width: 320px;
@@ -297,7 +299,7 @@ body {
   border-bottom: 1px solid white;
 }
 
-.statsPanelContainer{
+.statsPanelContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -306,16 +308,7 @@ body {
   width: auto;
 }
 
-
-#buildText{
-  font-family: Roboto;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  width: 100%;
-  font-size: 15px;
-}
-
-.statsImgContainer{
+.statsImgContainer {
   position: relative;
   width: 200px;
   height: 200px;
@@ -324,13 +317,17 @@ body {
   border: 1px solid rgb(145, 145, 145);
 }
 
-.statsDropdown{
-  padding-left: 5px;
-}
-.statsDropdownButton{
-
+.statsDropdown {
+  padding-left: 3px;
   font-family: Roboto;
-  font-size: 15px;
+  font-family: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.statsDropdownButton {
+  font-family: Roboto;
+  font-size: 12px;
   color: white;
   border: 1px solid #333;
   background-color: #202020;
@@ -341,4 +338,54 @@ body {
   display: flex;
   cursor: pointer;
   user-select: none;
+}
+
+.statsDropdownContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  padding-bottom: 10px;
+}
+
+.stats-dropdown-content {
+  display: none;
+  font: Roboto;
+  font-size: 10px;
+  position: absolute;
+  background-color: #202020;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  text-align: center;
+  user-select: none;
+  z-index: 1;
+}
+
+.stats-dropdown-content a {
+  color: white;
+  font-size: 10px;
+  width: 150px;
+  padding: 1px 1px;
+  font-family: Roboto;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.stats-dropdown-content a:hover {
+  background-color: black;
+}
+
+.stats-dropdown-content.show {
+  display: block;
+}
+
+.stats-dropdown-content #topOption {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.stats-dropdown-content #bottomOption {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

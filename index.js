@@ -163,7 +163,7 @@ function toggleDropdown(id) {
   }
 }
 
-// Whichever option picked, it will appear on the button
+// Whichever option is picked, it will appear on the button
 function setDropdownOption(event, buttonId, optionText) {
   event.preventDefault();
   const button = document.getElementById(buttonId);
@@ -171,14 +171,17 @@ function setDropdownOption(event, buttonId, optionText) {
   const option = event.currentTarget;
   const optionImg = option.querySelector("img");
 
-  // Clear existing content except the arrow image
+  // Clear existing button text except the arrow image
   button.innerHTML = "";
 
   // Create a new span element for the option text
   const textSpan = document.createElement("span");
   textSpan.innerText = optionText;
-  textSpan.style.fontFamily = "Roboto";
-  textSpan.style.fontSize = "9px";
+
+  const buttonStyles = window.getComputedStyle(button);
+  textSpan.style.fontFamily = buttonStyles.fontFamily;
+  textSpan.style.fontSize = buttonStyles.fontSize;
+  textSpan.style.color = buttonStyles.color;
   textSpan.style.pointerEvents = "none";
 
   // Append the option image if it exists
@@ -191,9 +194,18 @@ function setDropdownOption(event, buttonId, optionText) {
     newImg.style.pointerEvents = "none";
     button.appendChild(newImg);
   }
+
   // Append the text span and the arrow image
   button.appendChild(textSpan);
   button.appendChild(arrowImg);
+
+  // Close the dropdown
+  const dropdownContent = button.parentElement.querySelector(
+    ".dropdown-content, .stats-dropdown-content"
+  );
+  if (dropdownContent) {
+    dropdownContent.classList.remove("show");
+  }
 }
 
 // Ensures that clicking outside of a dropdown button will close any open dropdowns.
@@ -204,6 +216,37 @@ window.onclick = function (event) {
       const openDropdown = dropdowns[i];
       if (openDropdown.classList.contains("show")) {
         openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
+function statsToggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  const content = dropdown.querySelector(".stats-dropdown-content");
+
+  // Toggle the dropdown content visibility
+  if (content.classList.contains("show")) {
+    content.classList.remove("show");
+  } else {
+    const dropdowns = document.getElementsByClassName("stats-dropdown-content");
+
+    // Close all other dropdowns and show only the selected dropdown
+    for (let i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove("show");
+    }
+
+    content.classList.add("show");
+  }
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".statsDropdownButton")) {
+    const dropdowns = document.getElementsByClassName("stats-dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      if (dropdowns[i].classList.contains("show")) {
+        dropdowns[i].classList.remove("show");
       }
     }
   }

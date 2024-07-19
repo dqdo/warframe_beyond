@@ -1,498 +1,293 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- Web icon -->
-    <link rel="icon" type="image/png" href="images/warframe_logo.ico" />
-    <!----->
-    <title>Warframe Beyond</title>
-    <script src="index.js" defer></script>
-  </head>
 
-  <body>
-    <!-- Web Banner -->
-    <div class="bannerHeader">
-      <img src="images/warframe_logo.png" id="warframeBannerImg" />
-      <h1 id="bannerHeader">Warframe Beyond</h1>
-      <hr id="bannerLine" />
-    </div>
-    <!----->
-    <!-- From here, this section contains all the button toggles for each section: Archon Shards, Arcanes, and Mods -->
-    <div class="buttonTogglesContainer">
-      <button 
-      onclick="archonShardsToggle()" 
-      id="archonToggleButton">
-        <img src="images/archon_shards/archon_shard.png" 
-        id = "archonIconImage"
-        />
-        <img src = "images/archon_shards/archon_shard_glow.png"
-        id = "archonIconImageGlow"
-        />
-        Archon Shards
-      </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Web icon -->
+  <link rel="icon" type="image/png" href="images/warframe_logo.ico" />
+  <!----->
+  <title>Warframe Beyond</title>
+  <script src="index.js" defer></script>
+</head>
 
-      <button
-        onclick="arcanesToggle('arcanesSidebar')"
-        id="arcanesToggleButton"
-      >
-        <img
-          src="images/arcanes/arcane_icon_inactive.png"
-          id="arcaneIconImage"
-        />
-        Arcanes
-      </button>
-      <button onclick="modsToggle('modsSidebar')" id="modsToggleButton">
-        <svg
-          id="anyPolarity"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 52 52"
-        >
-          <g>
-            <path
-              fill="#FF0000"
-              d="M33.9,14.8c5.4,6.2,2.6,29.5-24.8,36C35.8,55,49.6,36.6,47.4,22.2C45.7,18.4,37.9,14.8,33.9,14.8z"
-            />
-            <path
-              fill="#FF0000"
-              d="M18.2,37.3c-5.4-6.2-2.6-29.5,24.8-36C16.3-2.9,2.5,15.5,4.7,29.9C6.4,33.7,14.2,37.3,18.2,37.3z"
-            />
-          </g>
-        </svg>
-        Mods
-      </button>
+<body>
+  <!-- Web Banner -->
+  <div class="bannerHeader">
+    <img src="images/warframe_logo.png" id="warframeBannerImg" />
+    <h1 id="bannerHeader">Warframe Beyond</h1>
+    <hr id="bannerLine" />
+  </div>
+  <!----->
+  <!-- From here, this section contains all the button toggles for each section: Archon Shards, Arcanes, and Mods -->
+  <div class="buttonTogglesContainer">
+    <button onclick="archonShardsToggle()" id="archonToggleButton">
+      <img src="images/archon_shards/archon_shard.png" id="archonIconImage" />
+      <img src="images/archon_shards/archon_shard_glow.png" id="archonIconImageGlow" />
+      Archon Shards
+    </button>
+
+    <button onclick="arcanesToggle('arcanesSidebar')" id="arcanesToggleButton">
+      <img src="images/arcanes/arcane_icon_inactive.png" id="arcaneIconImage" />
+      Arcanes
+    </button>
+    <button onclick="modsToggle('modsSidebar')" id="modsToggleButton">
+      <svg id="anyPolarity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <g>
+          <path fill="#FF0000"
+            d="M33.9,14.8c5.4,6.2,2.6,29.5-24.8,36C35.8,55,49.6,36.6,47.4,22.2C45.7,18.4,37.9,14.8,33.9,14.8z" />
+          <path fill="#FF0000"
+            d="M18.2,37.3c-5.4-6.2-2.6-29.5,24.8-36C16.3-2.9,2.5,15.5,4.7,29.9C6.4,33.7,14.2,37.3,18.2,37.3z" />
+        </g>
+      </svg>
+      Mods
+    </button>
+  </div>
+  <!----->
+  <!-- This div contains the mods sidebar -->
+  <div id="modsSidebar" class="sidebar">
+    <div id="modsSearchbar" class="modsSearchbar">
+      <!-- Content  -->
     </div>
-    <!----->
-    <!-- This div contains the mods sidebar -->
-    <div id="modsSidebar" class="sidebar">
-      <div id="modsSearchbar" class="modsSearchbar">
-        <!-- Content  -->
-      </div>
-      <div id="modsFilter" class="sidebarFilter">
-        <!-- This div contains all the button filters for the mods -->
-        <div class="filterContainer">
-          <div class="dropdown" id="polarityDropdown">
-            <span> Polarity </span>
-            <button
-              onclick="toggleDropdown('polarityDropdown')"
-              class="dropbutton"
-              id="polarityFilter"
-            >
-              All
-              <img
-                id="downArrowImg"
-                src="images/misc/down-arrow-svgrepo-com.svg"
-              />
-            </button>
-            <div class="dropdown-content">
-              <a
-                id="topOption"
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'All')"
-                >All</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Madurai')"
-                ><img src="images/mods/polarities/madurai_symbol.png" />
-                Madurai</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Vazarin')"
-                ><img
-                  src="images/mods/polarities/vazarin_symbol.png"
-                />Vazarin</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Naramon')"
-                ><img
-                  src="images/mods/polarities/naramon_symbol.png"
-                />Naramon</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Zenurik')"
-                ><img
-                  src="images/mods/polarities/zenurik_symbol.png"
-                />Zenurik</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Penjaga')"
-                ><img
-                  src="images/mods/polarities/penjaga_symbol.png"
-                />Penjaga</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Unairu')"
-                ><img src="images/mods/polarities/unairu_symbol.png" />Unariu</a
-              >
-              <a
-                id="bottomOption"
-                href="#"
-                onclick="setDropdownOption(event, 'polarityFilter', 'Umbra')"
-                ><img src="images/mods/polarities/umbra_symbol.png" />Umbra</a
-              >
-            </div>
+    <div id="modsFilter" class="sidebarFilter">
+      <!-- This div contains all the button filters for the mods -->
+      <div class="filterContainer">
+        <div class="dropdown" id="polarityDropdown">
+          <span> Polarity </span>
+          <button onclick="toggleDropdown('polarityDropdown')" class="dropbutton" id="polarityFilter">
+            All
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'polarityFilter', 'All')">All</a>
+            <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Madurai')"><img
+                src="images/mods/polarities/madurai_symbol.png" />
+              Madurai</a>
+            <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Vazarin')"><img
+                src="images/mods/polarities/vazarin_symbol.png" />Vazarin</a>
+            <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Naramon')"><img
+                src="images/mods/polarities/naramon_symbol.png" />Naramon</a>
+            <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Zenurik')"><img
+                src="images/mods/polarities/zenurik_symbol.png" />Zenurik</a>
+            <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Penjaga')"><img
+                src="images/mods/polarities/penjaga_symbol.png" />Penjaga</a>
+            <a href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Unairu')"><img
+                src="images/mods/polarities/unairu_symbol.png" />Unariu</a>
+            <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'polarityFilter', 'Umbra')"><img
+                src="images/mods/polarities/umbra_symbol.png" />Umbra</a>
           </div>
-          <div class="dropdown" id="typeDropdown">
-            <span> Type </span>
-            <button
-              onclick="toggleDropdown('typeDropdown')"
-              class="dropbutton"
-              id="modsTypeFilter"
-            >
-              Mods
-              <img
-                id="downArrowImg"
-                src="images/misc/down-arrow-svgrepo-com.svg"
-              />
-            </button>
-            <div class="dropdown-content">
-              <a
-                id="topOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsTypeFilter', 'Mods')"
-                >Mods</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'modsTypeFilter', 'Aura')"
-                >Aura</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'modsTypeFilter', 'Exilus')"
-                >Exilus</a
-              >
-              <a
-                id="bottomOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsTypeFilter', 'Stance')"
-                >Stance</a
-              >
-            </div>
+        </div>
+        <div class="dropdown" id="typeDropdown">
+          <span> Type </span>
+          <button onclick="toggleDropdown('typeDropdown')" class="dropbutton" id="modsTypeFilter">
+            Mods
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Mods')">Mods</a>
+            <a href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Aura')">Aura</a>
+            <a href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Exilus')">Exilus</a>
+            <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modsTypeFilter', 'Stance')">Stance</a>
           </div>
-          <div class="dropdown" id="rarityDropdown">
-            <span> Rarity </span>
-            <button
-              onclick="toggleDropdown('rarityDropdown')"
-              class="dropbutton"
-              id="modsRarityFilter"
-            >
-              All
-              <img
-                id="downArrowImg"
-                src="images/misc/down-arrow-svgrepo-com.svg"
-              />
-            </button>
-            <div class="dropdown-content">
-              <a
-                id="topOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsRarityFilter', 'All')"
-                >All</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'modsRarityFilter', 'Common')"
-                >Common</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'modsRarityFilter', 'Uncommon')"
-                >Uncommon</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'modsRarityFilter', 'Rare')"
-                >Rare</a
-              >
-              <a
-                id="bottomOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsRarityFilter', 'Legendary')"
-                >Legendary</a
-              >
-            </div>
+        </div>
+        <div class="dropdown" id="rarityDropdown">
+          <span> Rarity </span>
+          <button onclick="toggleDropdown('rarityDropdown')" class="dropbutton" id="modsRarityFilter">
+            All
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'All')">All</a>
+            <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Common')">Common</a>
+            <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Uncommon')">Uncommon</a>
+            <a href="#" onclick="setDropdownOption(event, 'modsRarityFilter', 'Rare')">Rare</a>
+            <a id="bottomOption" href="#"
+              onclick="setDropdownOption(event, 'modsRarityFilter', 'Legendary')">Legendary</a>
           </div>
-          <div class="dropdown" id="gameModeDropdown">
-            <span> Game Mode </span>
-            <button
-              onclick="toggleDropdown('gameModeDropdown')"
-              class="dropbutton"
-              id="modsGamemodeFilter"
-            >
-              PVE
-              <img
-                id="downArrowImg"
-                src="images/misc/down-arrow-svgrepo-com.svg"
-              />
-            </button>
-            <div class="dropdown-content">
-              <a
-                id="topOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsGamemodeFilter', 'PVE')"
-                >PVE</a
-              >
-              <a
-                id="bottomOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsGamemodeFilter', 'Conclave')"
-                >Conclave</a
-              >
-            </div>
+        </div>
+        <div class="dropdown" id="gameModeDropdown">
+          <span> Game Mode </span>
+          <button onclick="toggleDropdown('gameModeDropdown')" class="dropbutton" id="modsGamemodeFilter">
+            PVE
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'modsGamemodeFilter', 'PVE')">PVE</a>
+            <a id="bottomOption" href="#"
+              onclick="setDropdownOption(event, 'modsGamemodeFilter', 'Conclave')">Conclave</a>
           </div>
-          <div class="dropdown" id="sortDropdown">
-            <span> Sort </span>
-            <button
-              onclick="toggleDropdown('sortDropdown')"
-              class="dropbutton"
-              id="modsSortFilter"
-            >
-              Name
-              <img
-                id="downArrowImg"
-                src="images/misc/down-arrow-svgrepo-com.svg"
-              />
-            </button>
-            <div class="dropdown-content">
-              <a
-                id="topOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsSortFilter', 'Name')"
-                >Name</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'modsSortFilter', 'Drain')"
-                >Drain</a
-              >
-              <a
-                id="bottomOption"
-                href="#"
-                onclick="setDropdownOption(event, 'modsSortFilter', 'Max Rank')"
-                >Max Rank</a
-              >
-            </div>
+        </div>
+        <div class="dropdown" id="sortDropdown">
+          <span> Sort </span>
+          <button onclick="toggleDropdown('sortDropdown')" class="dropbutton" id="modsSortFilter">
+            Name
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'modsSortFilter', 'Name')">Name</a>
+            <a href="#" onclick="setDropdownOption(event, 'modsSortFilter', 'Drain')">Drain</a>
+            <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modsSortFilter', 'Max Rank')">Max Rank</a>
           </div>
         </div>
       </div>
     </div>
-    <!----->
-    <!-- This div contains the arcanes sidebar -->
-    <div id="arcanesSidebar" class="sidebar">
-      <div id="arcanesSearchbar" class="arcanesSearchbar">
-        <!-- Content -->
-      </div>
-      <div id="arcanesFilter" class="sidebarFilter">
-        <!-- This div contains all the button filters for the arcanes -->
-        <div class="filterContainer">
-          <div class="dropdown" id="arcanesRarityDropdown">
-            <span> Rarity </span>
-            <button
-              onclick="toggleDropdown('arcanesRarityDropdown')"
-              class="dropbutton"
-              id="arcanesRarityFilter"
-            >
-              All
-              <img
-                id="downArrowImg"
-                src="images/misc/down-arrow-svgrepo-com.svg"
-              />
-            </button>
-            <div class="dropdown-content">
-              <a
-                id="topOption"
-                href="#"
-                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'All')"
-                >All</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Common')"
-                >
-                <img id = "arcaneRarityImg" src = "images/arcanes/rarity/arcane_common.png">
-                Common</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Uncommon')"
-                >
-                <img id = "arcaneRarityImg" src = "images/arcanes/rarity/arcane_uncommon.png">
-                Uncommon</a
-              >
-              <a
-                href="#"
-                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Rare')"
-                >
-                <img id = "arcaneRarityImg" src = "images/arcanes/rarity/arcane_rare.png">
-                Rare</a
-              >
-              <a
-              id = "bottomOption"
-                href="#"
-                onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Legendary')"
-                >
-                <img id = "arcaneRarityImg" src = "images/arcanes/rarity/arcane_legendary.png">
-                Legendary</a
-              >
-            </div>
-          </div>
-            </div>
+  </div>
+  <!----->
+  <!-- This div contains the arcanes sidebar -->
+  <div id="arcanesSidebar" class="sidebar">
+    <div id="arcanesSearchbar" class="arcanesSearchbar">
+      <!-- Content -->
+    </div>
+    <div id="arcanesFilter" class="sidebarFilter">
+      <!-- This div contains all the button filters for the arcanes -->
+      <div class="filterContainer">
+        <div class="dropdown" id="arcanesRarityDropdown">
+          <span> Rarity </span>
+          <button onclick="toggleDropdown('arcanesRarityDropdown')" class="dropbutton" id="arcanesRarityFilter">
+            All
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'arcanesRarityFilter', 'All')">All</a>
+            <a href="#" onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Common')">
+              <img id="arcaneRarityImg" src="images/arcanes/rarity/arcane_common.png">
+              Common</a>
+            <a href="#" onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Uncommon')">
+              <img id="arcaneRarityImg" src="images/arcanes/rarity/arcane_uncommon.png">
+              Uncommon</a>
+            <a href="#" onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Rare')">
+              <img id="arcaneRarityImg" src="images/arcanes/rarity/arcane_rare.png">
+              Rare</a>
+            <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'arcanesRarityFilter', 'Legendary')">
+              <img id="arcaneRarityImg" src="images/arcanes/rarity/arcane_legendary.png">
+              Legendary</a>
           </div>
         </div>
       </div>
-
     </div>
-    <!----->
-    <div id="archonSidebar" class="sidebar">
-      <div id="archonSearchbar" class="archonSearchbar">
-        <!-- Content -->
-      </div>
-      <div id = "archonShardFilter" class = "sidebarFilter">
-      <div class ="filterContainer">
+  </div>
+  </div>
+
+  </div>
+  <!----->
+  <div id="archonSidebar" class="sidebar">
+    <div id="archonSearchbar" class="archonSearchbar">
+      <!-- Content -->
+    </div>
+    <div id="archonShardFilter" class="sidebarFilter">
+      <div class="filterContainer">
         <div class="dropdown" id="archonColorOneDrop">
           <span> Color 1 </span>
-          <button
-            onclick="toggleDropdown('archonColorOneDrop')"
-            class="dropbutton"
-            id="archonColorOneFilter"
-          >
+          <button onclick="toggleDropdown('archonColorOneDrop')" class="dropbutton" id="archonColorOneFilter">
             All
-            <img
-              id="downArrowImg"
-              src="images/misc/down-arrow-svgrepo-com.svg"
-            />
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
           </button>
           <div class="dropdown-content">
-            <a
-              id="topOption"
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorOneFilter', 'All')"
-              >All</a
-            >
-            <a
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorOneFilter', 'Crimson')"
-              ><img src = "images/archon_shards/crimson_shard.png">Crimson</a
-            >
-            <a
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorOneFilter', 'Amber')"
-              ><img src = "images/archon_shards/amber_shard.png">Amber</a
-            >
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'archonColorOneFilter', 'All')">All</a>
+            <a href="#" onclick="setDropdownOption(event, 'archonColorOneFilter', 'Crimson')"><img
+                src="images/archon_shards/crimson_shard.png">Crimson</a>
+            <a href="#" onclick="setDropdownOption(event, 'archonColorOneFilter', 'Amber')"><img
+                src="images/archon_shards/amber_shard.png">Amber</a>
 
-            <a
-              id="bottomOption"
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorOneFilter', 'Azure')"
-              ><img src = "images/archon_shards/azure_shard.png">Azure</a
-            >
+            <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'archonColorOneFilter', 'Azure')"><img
+                src="images/archon_shards/azure_shard.png">Azure</a>
           </div>
         </div>
-        <div class ="dropdown" id = "archonColorTwoDrop">
+        <div class="dropdown" id="archonColorTwoDrop">
           <span> Color 2 </span>
-          <button
-            onclick="toggleDropdown('archonColorTwoDrop')"
-            class="dropbutton"
-            id="archonColorTwoFilter"
-          >
+          <button onclick="toggleDropdown('archonColorTwoDrop')" class="dropbutton" id="archonColorTwoFilter">
             All
-            <img
-              id="downArrowImg"
-              src="images/misc/down-arrow-svgrepo-com.svg"
-            />
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
           </button>
           <div class="dropdown-content">
-            <a
-              id="topOption"
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorTwoFilter', 'All')"
-              >All</a
-            >
-            <a
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Crimson')"
-              ><img src = "images/archon_shards/crimson_shard.png">Crimson</a
-            >
-            <a
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Amber')"
-              ><img src = "images/archon_shards/amber_shard.png">Amber</a
-            >
+            <a id="topOption" href="#"
+              onclick="setDropdownOption(event, 'archonColorTwoFilter', 'All','dropdown-content')">All</a>
+            <a href="#" onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Crimson','dropdown-content')"><img
+                src="images/archon_shards/crimson_shard.png">Crimson</a>
+            <a href="#" onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Amber','dropdown-content')"><img
+                src="images/archon_shards/amber_shard.png">Amber</a>
 
-            <a
-              id="bottomOption"
-              href="#"
-              onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Azure')"
-              ><img src = "images/archon_shards/azure_shard.png">Azure</a
-            >
+            <a id="bottomOption" href="#"
+              onclick="setDropdownOption(event, 'archonColorTwoFilter', 'Azure','dropdown-content')"><img
+                src="images/archon_shards/azure_shard.png">Azure</a>
           </div>
         </div>
-        <div class = "dropdown" id = "archonShardTypeDrop">
+        <div class="dropdown" id="archonShardTypeDrop">
           <span> Type </span>
-          <button
-            onclick="toggleDropdown('archonShardTypeDrop')"
-            class="dropbutton"
-            id="archonShardTypeFilter"
-          >
+          <button onclick="toggleDropdown('archonShardTypeDrop')" class="dropbutton" id="archonShardTypeFilter">
             All
-            <img
-              id="downArrowImg"
-              src="images/misc/down-arrow-svgrepo-com.svg"
-            />
+            <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
           </button>
           <div class="dropdown-content">
-            <a
-              id="topOption"
-              href="#"
-              onclick="setDropdownOption(event, 'archonShardTypeFilter', 'All')"
-              >All</a
-            >
-            <a
-              href="#"
-              onclick="setDropdownOption(event, 'archonShardTypeFilter', 'Normal')"
-              >Normal</a
-            >
+            <a id="topOption" href="#" onclick="setDropdownOption(event, 'archonShardTypeFilter', 'All')">All</a>
+            <a href="#" onclick="setDropdownOption(event, 'archonShardTypeFilter', 'Normal')">Normal</a>
 
-            <a
-              id="bottomOption"
-              href="#"
-              onclick="setDropdownOption(event, 'archonShardTypeFilter', 'Tauforged')"
-              >Tauforged</a
-            >
+            <a id="bottomOption" href="#"
+              onclick="setDropdownOption(event, 'archonShardTypeFilter', 'Tauforged')">Tauforged</a>
           </div>
 
         </div>
       </div>
     </div>
-    </div>
-    <div class = "statsPanel">
-      <div class = "statsDropdown">
+  </div>
+  <div class="statsPanel">
+    <div class="statsDropdownContainer">
+      <div class="statsDropdown" id="statsTypeDropdown">
         Type:
-        <button class = "statsDropdownButton"> All <img
-          id="downArrowImg"
-          src="images/misc/down-arrow-svgrepo-com.svg"
-        /></button>
+        <button onclick="statsToggleDropdown('statsTypeDropdown')" class="statsDropdownButton" id="buildTypeSelect">
+          Select
+          <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+        </button>
+        <div class="stats-dropdown-content">
+          <a id="topOption" href="#" onclick="setDropdownOption(event, 'buildTypeSelect', 'Warframe')">
+            Warframe
+          </a>
+          <a href="#" onclick="setDropdownOption(event, 'buildTypeSelect', 'Primary Weapon')">
+            Primary Weapon
+          </a>
+          <a href="#" onclick="setDropdownOption(event, 'buildTypeSelect', 'Secondary Weapon')">
+            Secondary Weapon
+          </a>
+          <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'buildTypeSelect', 'Melee Weapon')">
+            Melee Weapon
+          </a>
+        </div>
       </div>
-      <div id = "buildText">        
-        New Build: <span> BLANK </span>
-    </div>  
-      <div class = "statsPanelContainer">
-        
-      <div class = "statsImgContainer">
-        <!-- Content -->
-      </div>  
+
+
+      <div class="statsDropdown" id="buildDropdown">
+
+        New Build:
+        <button onclick="statsToggleDropdown('buildDropdown')" class="statsDropdownButton" id="buildSelect">
+          Select
+          <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+        </button>
+        <div class="stats-dropdown-content">
+          <a id="topOption" href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK1')">
+            BLANK1
+          </a>
+          <a href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK2')">
+            BLANK2
+          </a>
+          <a href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK3')">
+            BLANK3
+          </a>
+          <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK4')">
+            BLANK4
+          </a>
+        </div>
       </div>
-      
+
+
     </div>
+    <div class="statsPanelContainer">
+      <div class="statsImgContainer">
+        <!-- Content -->
+      </div>
+    </div>
+  </div>
 
+</body>
 
-  </body>
 </html>
