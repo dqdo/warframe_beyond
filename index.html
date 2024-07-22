@@ -254,32 +254,12 @@
           </a>
         </div>
       </div>
-
-
-      <div class="statsDropdown" id="buildDropdown">
-
+      <div class="buildSelectContainer">
         New Build:
-        <button onclick="statsToggleDropdown('buildDropdown')" class="statsDropdownButton" id="buildSelect">
+        <button onclick = "openModal('buildSelectModal')" class="statsModalButton" id="buildSelect">
           Select
-          <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
         </button>
-        <div class="stats-dropdown-content">
-          <a id="topOption" href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK1')">
-            BLANK1
-          </a>
-          <a href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK2')">
-            BLANK2
-          </a>
-          <a href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK3')">
-            BLANK3
-          </a>
-          <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'buildSelect', 'BLANK4')">
-            BLANK4
-          </a>
-        </div>
       </div>
-
-
     </div>
     <div class="statsPanelContainer">
       <div class="statsImgContainer">
@@ -287,7 +267,21 @@
       </div>
     </div>
   </div>
+  <div class =  "modal" id = "buildSelectModal">
+    <div class = "modal-header">
+      BLANK
+      <button onclick = "closeModal('buildSelectModal')" class = "modal-close-button">
+        EXIT
+      </button>
+    </div>
+    <div class = "modal-body">
 
+    </div>
+
+  </div>
+  <div id = "overlay">
+
+  </div>
 </body>
 
 </html>

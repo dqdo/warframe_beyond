@@ -49,8 +49,6 @@ body {
   width: 100%;
 }
 
-/* All button toggles which include: Archon Shards, Mods, and Arcanes */
-
 /* Aligns and positions buttons */
 .buttonTogglesContainer {
   display: flex;
@@ -87,6 +85,7 @@ body {
   user-select: none;
 }
 
+/* Styling unactive arcane image */
 #arcanesToggleButton img {
   width: 60px;
   height: 60px;
@@ -94,12 +93,14 @@ body {
   user-select: none;
 }
 
+/* Styling non-glowing atchon shard */
 #archonIconImage {
   width: 40px;
   height: 40px;
   user-select: none;
 }
 
+/* Styling the glowing archon shard */
 #archonIconImageGlow {
   position: absolute;
   width: 40px;
@@ -109,10 +110,12 @@ body {
   user-select: none;
 }
 
+/* Shows the archon shard glow */
 #archonToggleButton:hover #archonIconImageGlow {
   opacity: 1;
 }
 
+/* Styling anyPolarity PNG */
 #anyPolarity {
   height: 25px;
   width: 25px;
@@ -148,12 +151,14 @@ body {
   border-bottom: 1px solid white;
 }
 
+/* Opens the sidebars */
 #modsSidebar.open,
 #arcanesSidebar.open,
 #archonSidebar.open {
   right: 0px;
 }
 
+/* Styling searchbars */
 #modsSearchbar,
 #arcanesSearchbar,
 #archonSearchbar {
@@ -191,7 +196,7 @@ body {
 
 /* Stylize buttons */
 .sidebarFilter .dropdown button {
-  width: 95px;
+  width: 97px;
   font-family: Roboto;
   font-size: 10px;
   color: white;
@@ -214,6 +219,11 @@ body {
   width: auto;
   float: right;
   margin-left: 5px;
+  pointer-events: none;
+  user-select: none;
+}
+
+#downArrowImg{
   pointer-events: none;
   user-select: none;
 }
@@ -251,21 +261,25 @@ body {
   text-align: center;
 }
 
+/* Option image */
 #modsFilter .dropdown-content a img {
   height: 10px;
   width: 10px;
 }
 
+/* Option image */
 #arcanesFilter .dropdown-content a img {
   height: 10px;
   width: 10px;
 }
 
+/* Option image */
 #archonShardFilter .dropdown-content a img {
   height: 10px;
   width: 10px;
 }
 
+/* Hover color over a dropdown option */
 .dropdown-content a:hover {
   background-color: black;
 }
@@ -280,10 +294,11 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.show {
+.dropdown-content.show {
   display: block;
 }
 
+/* Styling stats panel */
 .statsPanel {
   position: fixed;
   top: 80px;
@@ -299,6 +314,7 @@ body {
   border-bottom: 1px solid white;
 }
 
+/* Container */
 .statsPanelContainer {
   display: flex;
   flex-direction: row;
@@ -308,6 +324,7 @@ body {
   width: auto;
 }
 
+/* Image container/frame */
 .statsImgContainer {
   position: relative;
   width: 200px;
@@ -317,6 +334,7 @@ body {
   border: 1px solid rgb(145, 145, 145);
 }
 
+/* Dropdown for stats panel */
 .statsDropdown {
   padding-left: 3px;
   font-family: Roboto;
@@ -325,6 +343,7 @@ body {
   display: inline-block;
 }
 
+/* Styling button */
 .statsDropdownButton {
   font-family: Roboto;
   font-size: 12px;
@@ -333,6 +352,7 @@ body {
   background-color: #202020;
   border-radius: 5px;
   width: 150px;
+  height: 20px;
   justify-content: space-between;
   align-items: right;
   display: flex;
@@ -340,12 +360,30 @@ body {
   user-select: none;
 }
 
+.statsModalButton{
+  font-family: Roboto;
+  font-size: 12px;
+  color: white;
+  border: 1px solid #333;
+  background-color: #202020;
+  border-radius: 5px;
+  width: 150px;
+  height: 20px;
+  justify-content: space-between;
+  align-items: right;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Aligning buttons */
 .statsDropdownContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   padding-bottom: 10px;
 }
 
+/* Styling dropdown */
 .stats-dropdown-content {
   display: none;
   font: Roboto;
@@ -361,6 +399,7 @@ body {
   z-index: 1;
 }
 
+/* Styling dropdown text */
 .stats-dropdown-content a {
   color: white;
   font-size: 10px;
@@ -372,6 +411,7 @@ body {
   text-align: center;
 }
 
+/* Styling hovering over dropdown option */
 .stats-dropdown-content a:hover {
   background-color: black;
 }
@@ -388,4 +428,62 @@ body {
 .stats-dropdown-content #bottomOption {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.buildSelectContainer{
+  font-family: Roboto;
+  font-size: 15px;
+}
+
+.modal{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%) scale(0);
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #303030;
+  width: 50%;
+  height: 75%;
+  z-index: 100;
+  color: white;
+}
+
+.modal.active{
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.modal-close-button{
+  cursor: pointer;
+  font-family: Roboto;
+  color: black;
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  border-radius: 2px;
+}
+
+.modal-header{
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+  font-family: Roboto;
+}
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
 }

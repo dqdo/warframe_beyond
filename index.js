@@ -178,6 +178,7 @@ function setDropdownOption(event, buttonId, optionText) {
   const textSpan = document.createElement("span");
   textSpan.innerText = optionText;
 
+  // Styling text to match with button CSS
   const buttonStyles = window.getComputedStyle(button);
   textSpan.style.fontFamily = buttonStyles.fontFamily;
   textSpan.style.fontSize = buttonStyles.fontSize;
@@ -199,7 +200,7 @@ function setDropdownOption(event, buttonId, optionText) {
   button.appendChild(textSpan);
   button.appendChild(arrowImg);
 
-  // Close the dropdown
+  // Close the dropdown after an option is selected
   const dropdownContent = button.parentElement.querySelector(
     ".dropdown-content, .stats-dropdown-content"
   );
@@ -220,6 +221,7 @@ window.onclick = function (event) {
     }
   }
 };
+
 
 function statsToggleDropdown(id) {
   const dropdown = document.getElementById(id);
@@ -251,3 +253,18 @@ window.onclick = function (event) {
     }
   }
 };
+
+function openModal(modalID){
+  const modal = document.getElementById(modalID);
+  const overlay = document.getElementById('overlay');
+  overlay.classList.add('active');
+  modal.classList.add('active');
+  closeAllSidebars();
+}
+
+function closeModal(modalID){
+  const modal = document.getElementById(modalID);
+  const overlay = document.getElementById('overlay');
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+}
