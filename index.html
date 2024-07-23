@@ -47,8 +47,8 @@
   <!----->
   <!-- This div contains the mods sidebar -->
   <div id="modsSidebar" class="sidebar">
-    <div id="modsSearchbar" class="modsSearchbar">
-      <!-- Content  -->
+    <div id="modsSearchbar" class="searchbar">
+      <span>Filter Mods</span>
     </div>
     <div id="modsFilter" class="sidebarFilter">
       <!-- This div contains all the button filters for the mods -->
@@ -136,8 +136,8 @@
   <!----->
   <!-- This div contains the arcanes sidebar -->
   <div id="arcanesSidebar" class="sidebar">
-    <div id="arcanesSearchbar" class="arcanesSearchbar">
-      <!-- Content -->
+    <div id="arcanesSearchbar" class="searchbar">
+      <span>Filter Arcanes</span>
     </div>
     <div id="arcanesFilter" class="sidebarFilter">
       <!-- This div contains all the button filters for the arcanes -->
@@ -171,11 +171,13 @@
 
   </div>
   <!----->
+  <!-- This div contains the archon shards sidebar -->
   <div id="archonSidebar" class="sidebar">
-    <div id="archonSearchbar" class="archonSearchbar">
-      <!-- Content -->
+    <div id="archonSearchbar" class="searchbar">
+      <span>Filter Archon Shards</span>
     </div>
     <div id="archonShardFilter" class="sidebarFilter">
+      <!-- This div contains all the button filters for the archon shards -->
       <div class="filterContainer">
         <div class="dropdown" id="archonColorOneDrop">
           <span> Color 1 </span>
@@ -231,10 +233,13 @@
       </div>
     </div>
   </div>
+  <!----->
+  <!-- This div contains the stats panel -->
   <div class="statsPanel">
     <div class="statsDropdownContainer">
-      <div class="statsDropdown" id="statsTypeDropdown">
-        Type:
+      <div class="statsSelect" id="statsTypeDropdown">
+        <!-- Options for a build type -->
+        <span>Build Type:</span>
         <button onclick="statsToggleDropdown('statsTypeDropdown')" class="statsDropdownButton" id="buildTypeSelect">
           Select
           <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
@@ -254,9 +259,10 @@
           </a>
         </div>
       </div>
-      <div class="buildSelectContainer">
-        New Build:
-        <button onclick = "openModal('buildSelectModal')" class="statsModalButton" id="buildSelect">
+      <div class="statsSelect">
+        <span>New Build:</span>
+        <button onclick="openNewBuildModal('buildSelectModal','buildTypeSelect')" class="statsModalButton"
+          id="buildSelect">
           Select
         </button>
       </div>
@@ -267,20 +273,31 @@
       </div>
     </div>
   </div>
-  <div class =  "modal" id = "buildSelectModal">
-    <div class = "modal-header">
-      BLANK
-      <button onclick = "closeModal('buildSelectModal')" class = "modal-close-button">
-        EXIT
+  <!----->
+  <!-- This is a modal or "pop-up" for New Build -->
+  <div class="modal" id="buildSelectModal">
+    <div class="modal-header">
+      <div id="modal-searchbar" class="searchbar">
+        <span>Search for <span id="modalSearchText"></span></span>
+      </div>
+      <button onclick="closeModal('buildSelectModal')" class="modal-close-button">
+        <span>EXIT</span>
       </button>
     </div>
-    <div class = "modal-body">
-
+    <div class="modal-body">
+      <!-- Content -->
     </div>
 
+    <!-- Overlay for modal -->
   </div>
-  <div id = "overlay">
+  <div id="overlay">
+    <!-- Content -->
+  </div>
 
+  <!-- Error alert if a Build Type hasn't been selected -->
+  <div class="alert" id="buildTypeAlert">
+    <img src="images/misc/exclamation-mark-svgrepo-com.svg">
+    <span class="alertMsg">Please select a build type. </span>
   </div>
 </body>
 

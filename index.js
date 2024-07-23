@@ -222,7 +222,7 @@ window.onclick = function (event) {
   }
 };
 
-
+// Dropdown toggle specifically for stats panel. This is so that dropdowns from other panels don't close.
 function statsToggleDropdown(id) {
   const dropdown = document.getElementById(id);
   const content = dropdown.querySelector(".stats-dropdown-content");
@@ -254,17 +254,33 @@ window.onclick = function (event) {
   }
 };
 
-function openModal(modalID){
+// Opens the modal specifically for a new build.
+function openNewBuildModal(modalID, buildTypeSelectedID) {
   const modal = document.getElementById(modalID);
-  const overlay = document.getElementById('overlay');
-  overlay.classList.add('active');
-  modal.classList.add('active');
-  closeAllSidebars();
+  const overlay = document.getElementById("overlay");
+  const alert = document.getElementById("buildTypeAlert");
+  const buildTypeSelectButton = document.getElementById(buildTypeSelectedID);
+  const selectedText = buildTypeSelectButton.textContent.trim();
+  const searchBarText = document.getElementById("modalSearchText");
+
+  // Must select an option from the Build Type dropdown in order for the modal to show or else an alert message will show up.
+  if (selectedText !== "Select") {
+    overlay.classList.add("active");
+    modal.classList.add("active");
+    closeAllSidebars();
+    searchBarText.innerText = selectedText;
+  } else {
+    alert.classList.add("show");
+    setTimeout(() => {
+      alert.classList.remove("show");
+    }, 2000);
+  }
 }
 
-function closeModal(modalID){
+// Closes modal (usually from a click of a button)
+function closeModal(modalID) {
   const modal = document.getElementById(modalID);
-  const overlay = document.getElementById('overlay');
-  modal.classList.remove('active');
-  overlay.classList.remove('active');
+  const overlay = document.getElementById("overlay");
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
 }

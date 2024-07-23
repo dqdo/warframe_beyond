@@ -159,17 +159,22 @@ body {
 }
 
 /* Styling searchbars */
-#modsSearchbar,
-#arcanesSearchbar,
-#archonSearchbar {
-  padding: 15px;
+.searchbar {
+  padding: 5px;
   background-color: #202020;
-  color: white;
+  color: gray;
   border: 1px solid #333;
   margin: 10px;
   width: auto;
   border-radius: 5px;
   cursor: text;
+  font-family: Roboto;
+  font-size: 15px;
+}
+
+.searchbar span {
+  pointer-events: none;
+  user-select: none;
 }
 
 /* Aligns and positions buttons */
@@ -223,7 +228,7 @@ body {
   user-select: none;
 }
 
-#downArrowImg{
+#downArrowImg {
   pointer-events: none;
   user-select: none;
 }
@@ -335,12 +340,17 @@ body {
 }
 
 /* Dropdown for stats panel */
-.statsDropdown {
+.statsSelect {
   padding-left: 3px;
   font-family: Roboto;
   font-family: 15px;
   position: relative;
   display: inline-block;
+}
+
+.statsSelect span {
+  pointer-events: none;
+  user-select: none;
 }
 
 /* Styling button */
@@ -360,7 +370,7 @@ body {
   user-select: none;
 }
 
-.statsModalButton{
+.statsModalButton {
   font-family: Roboto;
   font-size: 12px;
   color: white;
@@ -430,16 +440,12 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.buildSelectContainer{
-  font-family: Roboto;
-  font-size: 15px;
-}
-
-.modal{
+/* Styling modal */
+.modal {
   position: fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%) scale(0);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
   border: 1px solid white;
   border-radius: 5px;
   background-color: #303030;
@@ -449,11 +455,12 @@ body {
   color: white;
 }
 
-.modal.active{
-  transform: translate(-50%,-50%) scale(1);
+/* Modal appearing */
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-close-button{
+.modal-close-button {
   cursor: pointer;
   font-family: Roboto;
   color: black;
@@ -461,10 +468,20 @@ body {
   border: none;
   font-size: 15px;
   border-radius: 2px;
+  transition: 0.5s;
 }
 
-.modal-header{
-  padding: 10px 10px;
+.modal-close-button span {
+  pointer-events: none;
+  user-select: none;
+}
+
+.modal-close-button:hover {
+  background-color: gray;
+}
+
+.modal-header {
+  padding: 3px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -472,10 +489,11 @@ body {
   font-family: Roboto;
 }
 
-#overlay{
+/* Overlay typically shows up when a modal shows up, it is preventing user interaction outside of the modal */
+#overlay {
   position: fixed;
   opacity: 0;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -483,7 +501,65 @@ body {
   pointer-events: none;
 }
 
-#overlay.active{
+#overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+#modal-searchbar {
+  width: 50%;
+  background-color: #202020;
+  color: white;
+  border: 1px solid #333;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: text;
+  padding: 5px;
+  color: gray;
+  font-size: 15px;
+}
+
+#modal-searchbar span {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Stylzing alert */
+.alert {
+  position: absolute;
+  top: 11%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: black;
+  font-family: Roboto;
+  background-color: #ff4f4b;
+  padding: 10px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.alert.show {
+  animation: slide_down 0.5s ease forwards;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes slide_down {
+  0% {
+    top: -50px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 11%;
+    opacity: 1;
+  }
+}
+
+.alert img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
