@@ -487,6 +487,7 @@ body {
   align-items: center;
   border-bottom: 1px solid white;
   font-family: Roboto;
+  font-size: 15px;
 }
 
 /* Overlay typically shows up when a modal shows up, it is preventing user interaction outside of the modal */
@@ -562,4 +563,44 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+}
+
+.ability{
+  position: relative;
+  border: 1px solid white;
+  height: 45px;
+  width: 45px;
+  border-radius: 2px;
+  cursor: pointer;
+  
+
+}
+
+.ability span{
+  position: absolute;
+  bottom:0px;
+  right:3px;
+  font-family: Roboto;
+  font-size: 13px;
+  color: #84EAB3;
+  user-select: none;
+  pointer-events: none;
+}
+
+.abilityContainer{
+  padding-top: 10px;
+  display: flex;
+  align-items: center; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+#abilitiesModal{
+  height: 40%;
+}
+
+#abilitiesModal .searchbar{
+  width: 300px;
 }

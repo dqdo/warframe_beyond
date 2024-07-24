@@ -284,3 +284,17 @@ function closeModal(modalID) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+function openAbilitiesModal(event, modalID){
+  const clickedDiv = event.currentTarget; // This gets the element that triggered the event
+  const spanElement = clickedDiv.querySelector('span'); // Get the span inside the clicked div
+  const abilityNumText = document.getElementById('abilityNum');
+
+  abilityNumText.innerText = spanElement.innerText;
+
+  const modal = document.getElementById(modalID);
+  const overlay = document.getElementById("overlay");
+
+  overlay.classList.add("active");
+  modal.classList.add("active");
+}
