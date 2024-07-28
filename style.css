@@ -337,6 +337,13 @@ body {
   display: flex;
   background-color: transparent;
   border: 1px solid rgb(145, 145, 145);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.statsImgContainer span{
+  font-family: Roboto;
 }
 
 /* Dropdown for stats panel */
@@ -388,7 +395,7 @@ body {
 
 /* Aligning buttons */
 .statsDropdownContainer {
-  display: grid;
+  padding-left: 5px;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   padding-bottom: 10px;
 }
@@ -565,21 +572,19 @@ body {
   margin-right: 5px;
 }
 
-.ability{
+.ability {
   position: relative;
   border: 1px solid white;
   height: 45px;
   width: 45px;
   border-radius: 2px;
   cursor: pointer;
-  
-
 }
 
-.ability span{
+.ability span {
   position: absolute;
-  bottom:0px;
-  right:3px;
+  bottom: 0px;
+  right: 3px;
   font-family: Roboto;
   font-size: 13px;
   color: #84EAB3;
@@ -587,20 +592,46 @@ body {
   pointer-events: none;
 }
 
-.abilityContainer{
+.abilityContainer {
   padding-top: 10px;
   display: flex;
-  align-items: center; 
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
 }
 
-#abilitiesModal{
+#abilitiesModal {
   height: 40%;
 }
 
-#abilitiesModal .searchbar{
+#abilitiesModal .searchbar {
   width: 300px;
 }
+
+.abilityDescription {
+  border: #333 solid 1px;
+  background-color: #171717;
+  width: 300px;
+  height: 400px;
+  opacity: 75%;
+  position: absolute;
+  display: none;
+  z-index: 1;
+
+}
+
+.abilityDescription span {
+  color: white;
+  opacity: 100%;
+}
+
+#abilityDescHeader {
+  border-bottom: 1px white solid;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-family: Roboto;
+}
+

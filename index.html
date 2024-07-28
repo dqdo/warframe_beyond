@@ -259,17 +259,11 @@
           </a>
         </div>
       </div>
-      <div class="statsSelect">
-        <span>New Build:</span>
-        <button onclick="openNewBuildModal('buildSelectModal','buildTypeSelect')" class="statsModalButton"
-          id="buildSelect">
-          Select
-        </button>
-      </div>
     </div>
     <div class="statsPanelContainer">
-      <div class="statsImgContainer">
-        <!-- Content -->
+      <div onclick="openNewBuildModal('buildSelectModal','buildTypeSelect')" class="statsImgContainer">
+        <span> Select A New Build:</span>
+
       </div>
       
     </div>
@@ -277,6 +271,7 @@
       <div onclick="openAbilitiesModal(event,'abilitiesModal')" class = "ability" id = "abilityOne">
         <span>1</span>
       </div>
+      
       <div onclick="openAbilitiesModal(event,'abilitiesModal')" class = "ability" id = "abilityTwo">
         <span>2</span>
       </div>
@@ -302,8 +297,6 @@
     <div class="modal-body">
       <!-- Content -->
     </div>
-
-    
   </div>
 
   <div class = "modal" id = "abilitiesModal">
@@ -319,9 +312,34 @@
     <div class = "modal-body">
       <!-- Content -->
     </div>
-
   </div>
+
+
   
+  <div class = "abilityDescription" id = "abilityOneDesc">
+    <div id = "abilityDescHeader">
+    <span>Ability 1: <span id = "abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <div class = "abilityDescription" id = "abilityTwoDesc">
+    <div id = "abilityDescHeader">
+    <span>Ability 2: <span id = "abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <div class = "abilityDescription" id = "abilityThreeDesc">
+    <div id = "abilityDescHeader">
+    <span>Ability 3: <span id = "abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <div class = "abilityDescription" id = "abilityFourDesc">
+    <div id = "abilityDescHeader">
+    <span>Ability 4: <span id = "abilityName">BLANK</span></span>
+    </div>
+  </div>
+
   <!-- Overlay for modal -->
   <div id="overlay">
     <!-- Content -->

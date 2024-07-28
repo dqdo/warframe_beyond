@@ -298,3 +298,30 @@ function openAbilitiesModal(event, modalID){
   overlay.classList.add("active");
   modal.classList.add("active");
 }
+
+// Get all ability divs and corresponding descriptions
+const abilities = document.querySelectorAll('.ability');
+const abilityDescriptions = document.querySelectorAll('.abilityDescription');
+
+// Loop through each ability div
+abilities.forEach((ability, index) => {
+  // Add event listener for mouseenter
+  ability.addEventListener('mouseenter', () => {
+    // Show the corresponding ability description
+    const description = abilityDescriptions[index];
+    description.style.display = 'block';
+    
+    // Adjust the position of the description relative to the ability
+    const rect = ability.getBoundingClientRect(); // Gets the size and position of the .ability  relative to the viewport
+    description.style.top = `${rect.bottom}px`;
+    description.style.left = `${rect.right - 50}px`;
+  });
+
+  // Add event listener for mouseleave (when mouse leaves div)
+  ability.addEventListener('mouseleave', () => {
+    // Hide all ability descriptions on mouse leave
+    abilityDescriptions.forEach(desc => {
+      desc.style.display = 'none';
+    });
+  });
+});
