@@ -325,3 +325,57 @@ abilities.forEach((ability, index) => {
     });
   });
 });
+
+function incrementValue() {
+  const input = document.getElementById('numberInput');
+  let value = parseInt(input.value, 10);
+
+  if (isNaN(value)) {
+    value = 0;  // Default to 0 if value is NaN
+  }
+
+  // Increment the value
+  value += 1;
+
+  // Ensure the value stays within the range of 0 to 30
+  if (value > 30) {
+    value = 30;
+  }
+
+  // Update the input value
+  input.value = value;
+}
+
+function decrementValue() {
+  const input = document.getElementById('numberInput');
+  let value = parseInt(input.value, 10);
+
+  if (isNaN(value)) {
+    value = 0;  // Default to 0 if value is NaN
+  }
+
+  // Decrement the value
+  value -= 1;
+
+  // Ensure the value stays within the range of 0 to 30
+  if (value < 0) {
+    value = 0;
+  }
+
+  // Update the input value
+  input.value = value;
+}
+
+function validateInput() {
+  var input = document.getElementById('numberInput');
+  var value = parseInt(input.value);
+  if (value > parseInt(input.max)) {
+    input.value = input.max;
+  } else if (value < parseInt(input.min)) {
+    input.value = input.min;
+  } 
+}
+
+
+
+

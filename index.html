@@ -282,6 +282,18 @@
         <span>4</span>
       </div>
     </div>
+
+    <div class = "itemRankContainer">
+      <p>Item Rank</p> 
+      <span>
+        <input type = "number" min = "0" max = "30" id = "numberInput" value = "30" oninput="validateInput()">
+        <div class="custom-spinner">
+          <button class="increment" onclick="incrementValue()">▲</button>
+          <button class="decrement" onclick="decrementValue()">▼</button>
+      </div>
+      </span>
+    </div>
+
   </div>
   <!----->
   <!-- This is a modal or "pop-up" for New Build -->
