@@ -329,17 +329,20 @@ abilities.forEach((ability, index) => {
 function incrementValue() {
   const input = document.getElementById('numberInput');
   let value = parseInt(input.value, 10);
+  let max = parseInt(input.max, 10);
 
   if (isNaN(value)) {
     value = 0;  // Default to 0 if value is NaN
+    updateSpanNumber('maxCapacity', 0);
+    updateSpanNumber('currentCapacity', 0);
   }
 
   // Increment the value
   value += 1;
 
   // Ensure the value stays within the range of 0 to 30
-  if (value > 30) {
-    value = 30;
+  if (value > max) {
+    value = max;
   }
 
   // Update the input value
@@ -349,17 +352,20 @@ function incrementValue() {
 function decrementValue() {
   const input = document.getElementById('numberInput');
   let value = parseInt(input.value, 10);
+  let min = parseInt(input.min, 10);
 
   if (isNaN(value)) {
     value = 0;  // Default to 0 if value is NaN
+    updateSpanNumber('maxCapacity', 0);
+    updateSpanNumber('currentCapacity', 0);
   }
 
   // Decrement the value
   value -= 1;
 
   // Ensure the value stays within the range of 0 to 30
-  if (value < 0) {
-    value = 0;
+  if (value < min) {
+    value = min;
   }
 
   // Update the input value
@@ -371,10 +377,63 @@ function validateInput() {
   var value = parseInt(input.value);
   if (value > parseInt(input.max)) {
     input.value = input.max;
+  updateSpanNumber('maxCapacity', input.max);
+  updateSpanNumber('currentCapacity', input.max);
   } else if (value < parseInt(input.min)) {
     input.value = input.min;
-  } 
+    updateSpanNumber('maxCapacity', input.min);
+    updateSpanNumber('currentCapacity', input.min);
+  } else {
+    updateSpanNumber('maxCapacity', value);
+    updateSpanNumber('currentCapacity', value);
+  }
 }
+
+
+const maxCapacitySpan = document.getElementById('maxCapacity');
+const currentCapacitySpan = document.getElementById('currentCapacity');
+
+function spantoNum(span){
+  const spanElement = document.getElementById(span);
+  const spanText = spanElement.textContent;
+  return Number(spanText);
+}
+
+function updateSpanNumber(span, newNumber) {
+  const spanElement = document.getElementById(span);
+  spanElement.textContent = newNumber;
+}
+
+document.querySelector('.decrement').addEventListener('click', () => {
+  let currentMaxNum = spantoNum('maxCapacity');
+  let currentNum = spantoNum('currentCapacity');
+  const input = document.getElementById('numberInput');
+        const min = parseInt(input.min, 10);
+
+        const newCurrentMax = Math.max(min, currentMaxNum - 1);
+        const newCurrentNum = Math.max(min, currentNum - 1);
+  
+
+  updateSpanNumber('maxCapacity', newCurrentMax);
+  updateSpanNumber('currentCapacity', newCurrentNum,);
+});
+
+document.querySelector('.increment').addEventListener('click', () => {
+  let currentMaxNum = spantoNum('maxCapacity');
+  let currentNum = spantoNum('currentCapacity');
+  const input = document.getElementById('numberInput');
+        const max = parseInt(input.max, 10);
+
+  
+        const newCurrentMax = Math.min(max, currentMaxNum + 1);
+        const newCurrentNum = Math.min(max, currentNum + 1);
+  
+
+  updateSpanNumber('maxCapacity', newCurrentMax);
+  updateSpanNumber('currentCapacity', newCurrentNum,);
+});
+
+
 
 
 

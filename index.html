@@ -259,39 +259,53 @@
           </a>
         </div>
       </div>
+      <div class="requiredResourcesContainer">
+        <div class="requiredEndo">
+          <img src="images/misc/endo.png">: <span>0</span>
+        </div>
+        <div class="requiredForma">
+          <img src="images/misc/forma.png">: <span>0</span>
+        </div>
+      </div>
     </div>
     <div class="statsPanelContainer">
       <div onclick="openNewBuildModal('buildSelectModal','buildTypeSelect')" class="statsImgContainer">
         <span> Select A New Build:</span>
 
       </div>
-      
+
     </div>
-    <div class = "abilityContainer">
-      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class = "ability" id = "abilityOne">
+    <div class="abilityContainer">
+      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class="ability" id="abilityOne">
         <span>1</span>
       </div>
-      
-      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class = "ability" id = "abilityTwo">
+
+      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class="ability" id="abilityTwo">
         <span>2</span>
       </div>
-      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class = "ability" id = "abilityThree">
+      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class="ability" id="abilityThree">
         <span>3</span>
       </div>
-      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class = "ability" id = "abilityFour">
+      <div onclick="openAbilitiesModal(event,'abilitiesModal')" class="ability" id="abilityFour">
         <span>4</span>
       </div>
     </div>
 
-    <div class = "itemRankContainer">
-      <p>Item Rank</p> 
+    <div class="itemRankContainer">
+      <p>Item Rank</p>
       <span>
-        <input type = "number" min = "0" max = "30" id = "numberInput" value = "30" oninput="validateInput()">
+        <input type="number" min="0" max="30" id="numberInput" value="30" oninput="validateInput()">
         <div class="custom-spinner">
           <button class="increment" onclick="incrementValue()">▲</button>
           <button class="decrement" onclick="decrementValue()">▼</button>
-      </div>
+        </div>
       </span>
+    </div>
+
+    <div class = "modCapacityContainer">
+      <div class = "capacityProgressBar">
+        <span><span id = "currentCapacity">30</span> / <span id = "maxCapacity">30</span></span>
+      </div>
     </div>
 
   </div>
@@ -311,9 +325,10 @@
     </div>
   </div>
 
-  <div class = "modal" id = "abilitiesModal">
-    <div class = "modal-header">
-      <span>Replace [<span id = "currentAbility">BLANK</span>] (<span id = "abilityNum">#</span>) with Helminth Ability: </span>
+  <div class="modal" id="abilitiesModal">
+    <div class="modal-header">
+      <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
+      </span>
       <div id="modal-searchbar" class="searchbar">
         <span>Search for Abilities<span id="modalSearchText"></span></span>
       </div>
@@ -321,34 +336,34 @@
         <span>EXIT</span>
       </button>
     </div>
-    <div class = "modal-body">
+    <div class="modal-body">
       <!-- Content -->
     </div>
   </div>
 
 
-  
-  <div class = "abilityDescription" id = "abilityOneDesc">
-    <div id = "abilityDescHeader">
-    <span>Ability 1: <span id = "abilityName">BLANK</span></span>
+
+  <div class="abilityDescription" id="abilityOneDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 1: <span id="abilityName">BLANK</span></span>
     </div>
   </div>
 
-  <div class = "abilityDescription" id = "abilityTwoDesc">
-    <div id = "abilityDescHeader">
-    <span>Ability 2: <span id = "abilityName">BLANK</span></span>
+  <div class="abilityDescription" id="abilityTwoDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 2: <span id="abilityName">BLANK</span></span>
     </div>
   </div>
 
-  <div class = "abilityDescription" id = "abilityThreeDesc">
-    <div id = "abilityDescHeader">
-    <span>Ability 3: <span id = "abilityName">BLANK</span></span>
+  <div class="abilityDescription" id="abilityThreeDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 3: <span id="abilityName">BLANK</span></span>
     </div>
   </div>
 
-  <div class = "abilityDescription" id = "abilityFourDesc">
-    <div id = "abilityDescHeader">
-    <span>Ability 4: <span id = "abilityName">BLANK</span></span>
+  <div class="abilityDescription" id="abilityFourDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 4: <span id="abilityName">BLANK</span></span>
     </div>
   </div>
 

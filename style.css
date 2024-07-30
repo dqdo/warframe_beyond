@@ -398,6 +398,8 @@ body {
   padding-left: 5px;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   padding-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 /* Styling dropdown */
@@ -652,8 +654,8 @@ body {
 }
 
 .itemRankContainer input {
-  width: 40px;
-  height: 30px;
+  width: 50px;
+  height: 25px;
   border-radius: 2px;
   border: none;
   background-color: #202020;
@@ -713,4 +715,33 @@ body {
 .itemRankContainer input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.requiredResourcesContainer{
+  font-family: Roboto;
+  display: absolute;
+  margin-left: 10px;
+  font-size: 15px;
+}
+.requiredResourcesContainer img{
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.modCapacityContainer{
+  justify-content: center;
+  display: flex;
+}
+
+.capacityProgressBar{
+  display: flex;
+  justify-content: center;
+  border: rgb(145, 145, 145) solid 1px;
+  background-color: #303030;
+  height: 20px;
+  width: 250px;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-size: 13px;
 }
