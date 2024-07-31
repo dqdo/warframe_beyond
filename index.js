@@ -285,10 +285,10 @@ function closeModal(modalID) {
   overlay.classList.remove("active");
 }
 
-function openAbilitiesModal(event, modalID){
+function openAbilitiesModal(event, modalID) {
   const clickedDiv = event.currentTarget; // This gets the element that triggered the event
-  const spanElement = clickedDiv.querySelector('span'); // Get the span inside the clicked div
-  const abilityNumText = document.getElementById('abilityNum');
+  const spanElement = clickedDiv.querySelector("span"); // Get the span inside the clicked div
+  const abilityNumText = document.getElementById("abilityNum");
 
   abilityNumText.innerText = spanElement.innerText;
 
@@ -300,17 +300,17 @@ function openAbilitiesModal(event, modalID){
 }
 
 // Get all ability divs and corresponding descriptions
-const abilities = document.querySelectorAll('.ability');
-const abilityDescriptions = document.querySelectorAll('.abilityDescription');
+const abilities = document.querySelectorAll(".ability");
+const abilityDescriptions = document.querySelectorAll(".abilityDescription");
 
 // Loop through each ability div
 abilities.forEach((ability, index) => {
   // Add event listener for mouseenter
-  ability.addEventListener('mouseenter', () => {
+  ability.addEventListener("mouseenter", () => {
     // Show the corresponding ability description
     const description = abilityDescriptions[index];
-    description.style.display = 'block';
-    
+    description.style.display = "block";
+
     // Adjust the position of the description relative to the ability
     const rect = ability.getBoundingClientRect(); // Gets the size and position of the .ability  relative to the viewport
     description.style.top = `${rect.bottom}px`;
@@ -318,123 +318,138 @@ abilities.forEach((ability, index) => {
   });
 
   // Add event listener for mouseleave (when mouse leaves div)
-  ability.addEventListener('mouseleave', () => {
+  ability.addEventListener("mouseleave", () => {
     // Hide all ability descriptions on mouse leave
-    abilityDescriptions.forEach(desc => {
-      desc.style.display = 'none';
+    abilityDescriptions.forEach((desc) => {
+      desc.style.display = "none";
     });
   });
 });
 
+// Increments item rank
 function incrementValue() {
-  const input = document.getElementById('numberInput');
+  const input = document.getElementById("numberInput");
   let value = parseInt(input.value, 10);
-  let max = parseInt(input.max, 10);
+  const max = input.max;
 
   if (isNaN(value)) {
-    value = 0;  // Default to 0 if value is NaN
-    updateSpanNumber('maxCapacity', 0);
-    updateSpanNumber('currentCapacity', 0);
+    value = 0; // Default to 0 if value is NaN
   }
 
   // Increment the value
   value += 1;
 
-  // Ensure the value stays within the range of 0 to 30
+  // Ensure the value stays within the range
   if (value > max) {
     value = max;
   }
 
-  // Update the input value
+  // Update the input value and spans
   input.value = value;
+
+  updateSpanNumber(
+    "maxCapacity",
+    input.classList.contains("orokinActive") ? value * 2 : value
+  );
+  // If the orokin reactor is active, then the current value of the input (the number inside the item rank) is doubled.
+  updateSpanNumber(
+    "currentCapacity",
+    input.classList.contains("orokinActive") ? value * 2 : value
+  );
 }
 
 function decrementValue() {
-  const input = document.getElementById('numberInput');
+  const input = document.getElementById("numberInput");
   let value = parseInt(input.value, 10);
-  let min = parseInt(input.min, 10);
+  const min = input.min;
 
   if (isNaN(value)) {
-    value = 0;  // Default to 0 if value is NaN
-    updateSpanNumber('maxCapacity', 0);
-    updateSpanNumber('currentCapacity', 0);
+    value = 0; // Default to 0 if value is NaN
   }
 
   // Decrement the value
   value -= 1;
 
-  // Ensure the value stays within the range of 0 to 30
+  // Ensure the value stays within the range
   if (value < min) {
     value = min;
   }
 
-  // Update the input value
+  // Update the input value and spans
   input.value = value;
+  updateSpanNumber(
+    "maxCapacity",
+    input.classList.contains("orokinActive") ? value * 2 : value
+  );
+
+  // If the orokin reactor is active, then the current value of the input (the number inside the item rank) is doubled.
+  updateSpanNumber(
+    "currentCapacity",
+    input.classList.contains("orokinActive") ? value * 2 : value
+  );
 }
 
+// When the user manually types in the input (item rank), this checks if the values are within the min and max range.
 function validateInput() {
-  var input = document.getElementById('numberInput');
-  var value = parseInt(input.value);
-  if (value > parseInt(input.max)) {
-    input.value = input.max;
-  updateSpanNumber('maxCapacity', input.max);
-  updateSpanNumber('currentCapacity', input.max);
-  } else if (value < parseInt(input.min)) {
-    input.value = input.min;
-    updateSpanNumber('maxCapacity', input.min);
-    updateSpanNumber('currentCapacity', input.min);
-  } else {
-    updateSpanNumber('maxCapacity', value);
-    updateSpanNumber('currentCapacity', value);
+  const input = document.getElementById("numberInput");
+  let value = parseInt(input.value, 10);
+  const max = input.max;
+  const min = input.min;
+
+  // Over the max = max
+  if (value > max) {
+    value = max;
+    // Lower than the min = min
+  } else if (value < min) {
+    value = min;
+  } else if (isNaN(value)) {
+    value = 0; // Default to 0 if value is NaN
   }
+  input.value = value;
+  updateSpanNumber(
+    "maxCapacity",
+    input.classList.contains("orokinActive") ? value * 2 : value
+  );
+  updateSpanNumber(
+    "currentCapacity",
+    input.classList.contains("orokinActive") ? value * 2 : value
+  );
 }
 
-
-const maxCapacitySpan = document.getElementById('maxCapacity');
-const currentCapacitySpan = document.getElementById('currentCapacity');
-
-function spantoNum(span){
+// Converts a span to a number
+function spanToNum(span) {
   const spanElement = document.getElementById(span);
   const spanText = spanElement.textContent;
   return Number(spanText);
 }
 
+// Updates that span with a number (usually from the spanToNum function)
 function updateSpanNumber(span, newNumber) {
   const spanElement = document.getElementById(span);
   spanElement.textContent = newNumber;
 }
 
-document.querySelector('.decrement').addEventListener('click', () => {
-  let currentMaxNum = spantoNum('maxCapacity');
-  let currentNum = spantoNum('currentCapacity');
-  const input = document.getElementById('numberInput');
-        const min = parseInt(input.min, 10);
+function checkAndUpdateReactor() {
+  const orokinReactorToggle = document.querySelector(".orokinReactorToggle");
+  const input = document.getElementById("numberInput");
 
-        const newCurrentMax = Math.max(min, currentMaxNum - 1);
-        const newCurrentNum = Math.max(min, currentNum - 1);
-  
+  if (orokinReactorToggle.classList.contains("active")) {
+    input.classList.add("orokinActive");
+  } else {
+    input.classList.remove("orokinActive");
+  }
 
-  updateSpanNumber('maxCapacity', newCurrentMax);
-  updateSpanNumber('currentCapacity', newCurrentNum,);
-});
+  // Ensure the current value is within the new min and max range
+  validateInput();
+}
 
-document.querySelector('.increment').addEventListener('click', () => {
-  let currentMaxNum = spantoNum('maxCapacity');
-  let currentNum = spantoNum('currentCapacity');
-  const input = document.getElementById('numberInput');
-        const max = parseInt(input.max, 10);
+// Toggles the orokin reactor
+document
+  .querySelector(".orokinReactorToggle")
+  .addEventListener("click", function () {
+    this.classList.toggle("active");
+    checkAndUpdateReactor();
+  });
 
-  
-        const newCurrentMax = Math.min(max, currentMaxNum + 1);
-        const newCurrentNum = Math.min(max, currentNum + 1);
-  
-
-  updateSpanNumber('maxCapacity', newCurrentMax);
-  updateSpanNumber('currentCapacity', newCurrentNum,);
-});
-
-
-
-
-
-
+// Constantly checks if the orokin reactor is active
+document.addEventListener("DOMContentLoaded", checkAndUpdateReactor);

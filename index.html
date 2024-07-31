@@ -274,6 +274,7 @@
 
       </div>
 
+      <!-- This div contains the Warframe abilities -->
     </div>
     <div class="abilityContainer">
       <div onclick="openAbilitiesModal(event,'abilitiesModal')" class="ability" id="abilityOne">
@@ -291,6 +292,7 @@
       </div>
     </div>
 
+    <!-- Item rank "counter" -->
     <div class="itemRankContainer">
       <p>Item Rank</p>
       <span>
@@ -302,10 +304,22 @@
       </span>
     </div>
 
-    <div class = "modCapacityContainer">
-      <div class = "capacityProgressBar">
-        <span><span id = "currentCapacity">30</span> / <span id = "maxCapacity">30</span></span>
+    <!-- Mod capacity progress bar -->
+    <div class="modCapacityContainer">
+      <div class="capacityProgressBar">
+        <span><span id="currentCapacity">30</span> / <span id="maxCapacity">30</span></span>
       </div>
+    </div>
+
+    <div class="orokinReactorContainer">
+      <p>Orokin Reactor</p>
+      <div class="orokinReactorToggle active">
+        <div class="ball">
+
+        </div>
+      </div>
+
+
     </div>
 
   </div>
@@ -325,6 +339,7 @@
     </div>
   </div>
 
+  <!-- Modal for changing abilities -->
   <div class="modal" id="abilitiesModal">
     <div class="modal-header">
       <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
@@ -342,7 +357,7 @@
   </div>
 
 
-
+  <!-- Ability Descriptions when hovering over an ability -->
   <div class="abilityDescription" id="abilityOneDesc">
     <div id="abilityDescHeader">
       <span>Ability 1: <span id="abilityName">BLANK</span></span>

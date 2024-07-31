@@ -574,6 +574,7 @@ body {
   margin-right: 5px;
 }
 
+/* Stylizing ability */
 .ability {
   position: relative;
   border: 1px solid white;
@@ -604,6 +605,7 @@ body {
   gap: 10px;
 }
 
+/* Stylizing ability modal */
 #abilitiesModal {
   height: 40%;
 }
@@ -612,6 +614,7 @@ body {
   width: 300px;
 }
 
+/* Stylizing ability description */
 .abilityDescription {
   border: #333 solid 1px;
   background-color: #171717;
@@ -636,6 +639,7 @@ body {
   font-family: Roboto;
 }
 
+/* Stylizing item rank */
 .itemRankContainer {
   padding-top: 10px;
   padding-right: 5px;
@@ -665,6 +669,7 @@ body {
   margin-right: 3px;
 }
 
+/* Stylzing custom spinner */
 .custom-spinner {
   position: absolute;
   right: 5px;
@@ -717,24 +722,27 @@ body {
   margin: 0;
 }
 
-.requiredResourcesContainer{
+/* Stylizing required resources (endo and forma) */
+.requiredResourcesContainer {
   font-family: Roboto;
   display: absolute;
   margin-left: 10px;
   font-size: 15px;
 }
-.requiredResourcesContainer img{
+
+.requiredResourcesContainer img {
   height: 20px;
   width: 20px;
   margin-right: 5px;
 }
 
-.modCapacityContainer{
+/* Stylizing mod progress bar */
+.modCapacityContainer {
   justify-content: center;
   display: flex;
 }
 
-.capacityProgressBar{
+.capacityProgressBar {
   display: flex;
   justify-content: center;
   border: rgb(145, 145, 145) solid 1px;
@@ -744,4 +752,51 @@ body {
   border-radius: 10px;
   font-family: Roboto;
   font-size: 13px;
+}
+
+.orokinReactorContainer {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding-right: 5px;
+}
+
+.orokinReactorContainer p {
+  font-family: Roboto;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.orokinReactorToggle {
+  border: rgb(145, 145, 145) solid 1px;
+  width: 35px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: #303030;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  position: relative;
+}
+
+.ball {
+  position: absolute;
+  background-color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  transition: transform 0.1s ease;
+  position: absolute;
+  left: 0;
+}
+
+.orokinReactorToggle.active {
+  background-color: #84eab3;
+  justify-content: flex-end;
+}
+
+.orokinReactorToggle.active .ball {
+  transform: translateX(15px);
 }
