@@ -308,7 +308,7 @@ body {
   position: fixed;
   top: 80px;
   width: 320px;
-  height: 80vh;
+  height: 91vh;
   background-color: #141414;
   color: white;
   overflow-x: hidden;
@@ -655,6 +655,7 @@ body {
   font-family: Roboto;
   margin: 5px;
   font-weight: bold;
+  font-size: 15px;
 }
 
 .itemRankContainer input {
@@ -692,6 +693,13 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 8px;
+  user-select: none;
+  visibility: hidden;
+}
+
+.itemRankContainer input:hover + .custom-spinner button,
+.itemRankContainer .custom-spinner:hover button {
+  visibility: visible;
 }
 
 .custom-spinner button:active {
@@ -734,6 +742,12 @@ body {
   height: 20px;
   width: 20px;
   margin-right: 5px;
+  user-select: none;
+}
+
+.requiredForma img {
+  user-select: none;
+  cursor: pointer;
 }
 
 /* Stylizing mod progress bar */
@@ -742,6 +756,7 @@ body {
   display: flex;
 }
 
+/* Stylizing capacity progress bar */
 .capacityProgressBar {
   display: flex;
   justify-content: center;
@@ -754,21 +769,25 @@ body {
   font-size: 13px;
 }
 
-.orokinReactorContainer {
+/* Stylizing orokin reactor toggle */
+.orokinReactorContainer,
+.applyConditionalsContainer {
   justify-content: space-between;
   align-items: center;
   display: flex;
   padding-right: 5px;
 }
 
-.orokinReactorContainer p {
+.orokinReactorContainer p,
+.applyConditionalsContainer p {
   font-family: Roboto;
   margin: 5px;
   font-weight: bold;
   font-size: 15px;
 }
 
-.orokinReactorToggle {
+.orokinReactorToggle,
+.conditionalToggle {
   border: rgb(145, 145, 145) solid 1px;
   width: 35px;
   height: 20px;
@@ -792,11 +811,40 @@ body {
   left: 0;
 }
 
-.orokinReactorToggle.active {
+.orokinReactorToggle.active,
+.conditionalToggle.active {
   background-color: #84eab3;
   justify-content: flex-end;
 }
 
-.orokinReactorToggle.active .ball {
+.orokinReactorToggle.active .ball,
+.conditionalToggle.active .ball {
   transform: translateX(15px);
+}
+
+/* Stylizing Warframe Stats */
+.statsWarframeListContainer {
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.warframeStat {
+  font-size: 15px;
+  font-family: Roboto;
+  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  padding-right: 5px;
+}
+
+.warframeStat p,
+.warframeStat span {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
 }

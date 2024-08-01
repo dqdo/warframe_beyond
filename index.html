@@ -259,6 +259,7 @@
           </a>
         </div>
       </div>
+      <!-- Required materials based on build -->
       <div class="requiredResourcesContainer">
         <div class="requiredEndo">
           <img src="images/misc/endo.png">: <span>0</span>
@@ -311,6 +312,7 @@
       </div>
     </div>
 
+    <!-- Orokin reactor toggle -->
     <div class="orokinReactorContainer">
       <p>Orokin Reactor</p>
       <div class="orokinReactorToggle active">
@@ -319,7 +321,70 @@
         </div>
       </div>
 
+    </div>
 
+    <!-- Toggle for applying conditionals -->
+    <div class="applyConditionalsContainer">
+      <p>Apply Conditionals</p>
+      <div class="conditionalToggle">
+        <div class="ball">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats for Warframe Build Types -->
+    <div class="statsWarframeListContainer">
+      <div class="warframeStat">
+        <p>Energy</p>
+        <span id="energy">####</span>
+      </div>
+      <div class="warframeStat">
+        <p>Health</p>
+        <span id="health">####</span>
+      </div>
+      <div class="warframeStat">
+        <p>Shield</p>
+        <span id="shield">####</span>
+      </div>
+      <div class="warframeStat">
+        <p>Sprint Speed</p>
+        <span id="sprintSpeed">####</span>
+      </div>
+    </div>
+
+    <div class="statsWarframeListContainer">
+      <div class="warframeStat">
+        <p>Duration</p>
+        <span><span id="duration">####</span>%</span>
+      </div>
+      <div class="warframeStat">
+        <p>Efficiency</p>
+        <span><span id="efficiency">####</span>%</span>
+      </div>
+      <div class="warframeStat">
+        <p>Range</p>
+        <span><span id="range">####</span>%</span>
+      </div>
+      <div class="warframeStat">
+        <p>Strength</p>
+        <span><span id="strength">####</span>%</span>
+      </div>
+    </div>
+
+    <div class="statsWarframeListContainer">
+      <div class="warframeStat">
+        <p>Armor</p>
+        <span id="armor">####</span>
+      </div>
+      <div class="warframeStat">
+        <p>Damage Reduction</p>
+        <span id="damageReduction">####</span>
+      </div>
+      <div class="warframeStat">
+        <p>Effective Hit Points</p>
+        <span id="effectiveHP">####</span>
+      </div>
     </div>
 
   </div>
@@ -390,7 +455,7 @@
   <!-- Error alert if a Build Type hasn't been selected -->
   <div class="alert" id="buildTypeAlert">
     <img src="images/misc/exclamation-mark-svgrepo-com.svg">
-    <span class="alertMsg">Please select a build type. </span>
+    <span class="alertMsg">Please select a Build Type. </span>
   </div>
 </body>
 

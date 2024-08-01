@@ -451,5 +451,12 @@ document
     checkAndUpdateReactor();
   });
 
-// Constantly checks if the orokin reactor is active
+// When there is a change, checks if the orokin reactor is active
 document.addEventListener("DOMContentLoaded", checkAndUpdateReactor);
+
+// Toggles the Apply Conditonals
+document
+  .querySelector(".conditionalToggle")
+  .addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
