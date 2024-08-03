@@ -170,6 +170,7 @@ function setDropdownOption(event, buttonId, optionText) {
   const arrowImg = button.querySelector("#downArrowImg");
   const option = event.currentTarget;
   const optionImg = option.querySelector("img");
+  const svg = option.querySelector("svg");
 
   // Clear existing button text except the arrow image
   button.innerHTML = "";
@@ -186,7 +187,7 @@ function setDropdownOption(event, buttonId, optionText) {
   textSpan.style.pointerEvents = "none";
 
   // Append the option image if it exists
-  if (optionImg) {
+  if (optionImg && buttonId != "modBuildPolarityFilter") {
     const newImg = document.createElement("img");
     newImg.src = optionImg.src;
     newImg.style.height = "10px";
@@ -194,6 +195,26 @@ function setDropdownOption(event, buttonId, optionText) {
     newImg.style.marginRight = "3px";
     newImg.style.pointerEvents = "none";
     button.appendChild(newImg);
+  }
+
+  // Specific if statement for the mod slots.
+  if (optionImg && buttonId == "modBuildPolarityFilter") {
+    const newImg = document.createElement("img");
+    newImg.src = optionImg.src;
+    newImg.style.height = "13px";
+    newImg.style.width = "13px";
+    newImg.style.marginRight = "3px";
+    newImg.style.pointerEvents = "none";
+    button.appendChild(newImg);
+  }
+
+  if (svg) {
+    const newSVG = svg.cloneNode(true);
+    newSVG.style.height = "12px";
+    newSVG.style.width = "12px";
+    newSVG.style.marginRight = "3px";
+    newSVG.style.pointerEvents = "none";
+    button.appendChild(newSVG);
   }
 
   // Append the text span and the arrow image

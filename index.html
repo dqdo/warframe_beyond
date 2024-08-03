@@ -356,19 +356,19 @@
     <div class="statsWarframeListContainer">
       <div class="warframeStat">
         <p>Duration</p>
-        <span><span id="duration">####</span>%</span>
+        <span><span id="duration">100</span>%</span>
       </div>
       <div class="warframeStat">
         <p>Efficiency</p>
-        <span><span id="efficiency">####</span>%</span>
+        <span><span id="efficiency">100</span>%</span>
       </div>
       <div class="warframeStat">
         <p>Range</p>
-        <span><span id="range">####</span>%</span>
+        <span><span id="range">100</span>%</span>
       </div>
       <div class="warframeStat">
         <p>Strength</p>
-        <span><span id="strength">####</span>%</span>
+        <span><span id="strength">100</span>%</span>
       </div>
     </div>
 
@@ -387,76 +387,425 @@
       </div>
     </div>
 
-  </div>
-  <!----->
-  <!-- This is a modal or "pop-up" for New Build -->
-  <div class="modal" id="buildSelectModal">
-    <div class="modal-header">
-      <div id="modal-searchbar" class="searchbar">
-        <span>Search for <span id="modalSearchText"></span></span>
+    <div class="modBuildSlotsContainer">
+      <!-- Aura Slot A.K.A Mod Slot 0 -->
+      <div class="topSlots">
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="auraPolarity">
+              <button onclick="toggleDropdown('auraPolarity')" class="dropbutton" id="auraPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'auraPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'auraPolarityFilter', '')">
+                  <svg id="anyPolarity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <g>
+                      <path fill="#FFFFFF"
+                        d="M33.9,14.8c5.4,6.2,2.6,29.5-24.8,36C35.8,55,49.6,36.6,47.4,22.2C45.7,18.4,37.9,14.8,33.9,14.8z" />
+                      <path fill="#FFFFFF"
+                        d="M18.2,37.3c-5.4-6.2-2.6-29.5,24.8-36C16.3-2.9,2.5,15.5,4.7,29.9C6.4,33.7,14.2,37.3,18.2,37.3z" />
+                    </g>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Exilus Slot A.K.A Mod Slot 1 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="exilusPolarity">
+              <button onclick="toggleDropdown('exilusPolarity')" class="dropbutton" id="exilusPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'exilusPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'exilusPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
       </div>
-      <button onclick="closeModal('buildSelectModal')" class="modal-close-button">
-        <span>EXIT</span>
-      </button>
+      <!-- Rest of Mod Slots -->
+
+      <div class="modGridContainer">
+        <!-- Mod Slot 2 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modTwoPolarity">
+              <button onclick="toggleDropdown('modTwoPolarity')" class="dropbutton" id="modTwoPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modTwoPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modTwoPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 3 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modThreePolarity">
+              <button onclick="toggleDropdown('modThreePolarity')" class="dropbutton" id="modThreePolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modThreePolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modThreePolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 4 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modFourPolarity">
+              <button onclick="toggleDropdown('modFourPolarity')" class="dropbutton" id="modFourPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modFourPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modFourPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 5 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modFivePolarity">
+              <button onclick="toggleDropdown('modFivePolarity')" class="dropbutton" id="modFivePolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modFivePolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modFivePolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 6 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modSixPolarity">
+              <button onclick="toggleDropdown('modSixPolarity')" class="dropbutton" id="modSixPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modSixPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modSixPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 7 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modSevenPolarity">
+              <button onclick="toggleDropdown('modSevenPolarity')" class="dropbutton" id="modSevenPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modSevenPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modSevenPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 8 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modEightPolarity">
+              <button onclick="toggleDropdown('modEightPolarity')" class="dropbutton" id="modEightPolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modEightPolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modEightPolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+        <!-- Mod Slot 9 -->
+        <div class="modSlots">
+          <div class="modPolaritySelector">
+            <div class="dropdown" id="modNinePolarity">
+              <button onclick="toggleDropdown('modNinePolarity')" class="dropbutton" id="modNinePolarityFilter">
+                <span>-- </span>
+                <img id="downArrowImg" src="images/misc/down-arrow-svgrepo-com.svg" />
+              </button>
+              <div class="dropdown-content">
+                <a id="topOption" href="#"
+                  onclick="setDropdownOption(event, 'modNinePolarityFilter', '-- ')"><span>--</span></a>
+                <a href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/madurai_symbol.png" />
+                </a>
+                <a href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/vazarin_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/naramon_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/zenurik_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/penjaga_symbol.png" /></a>
+                <a href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/unairu_symbol.png" /></a>
+                <a id="bottomOption" href="#" onclick="setDropdownOption(event, 'modNinePolarityFilter', '')"><img
+                    src="images/mods/polarities/umbra_symbol.png" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="modSlotContainer">
+            <img src="images/mods/mod_slot.png">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="modal-body">
+    <!----->
+    <!-- This is a modal or "pop-up" for New Build -->
+    <div class="modal" id="buildSelectModal">
+      <div class="modal-header">
+        <div id="modal-searchbar" class="searchbar">
+          <span>Search for <span id="modalSearchText"></span></span>
+        </div>
+        <button onclick="closeModal('buildSelectModal')" class="modal-close-button">
+          <span>EXIT</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Content -->
+      </div>
+    </div>
+
+    <!-- Modal for changing abilities -->
+    <div class="modal" id="abilitiesModal">
+      <div class="modal-header">
+        <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
+        </span>
+        <div id="modal-searchbar" class="searchbar">
+          <span>Search for Abilities<span id="modalSearchText"></span></span>
+        </div>
+        <button onclick="closeModal('abilitiesModal')" class="modal-close-button">
+          <span>EXIT</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Content -->
+      </div>
+    </div>
+
+
+    <!-- Ability Descriptions when hovering over an ability -->
+    <div class="abilityDescription" id="abilityOneDesc">
+      <div id="abilityDescHeader">
+        <span>Ability 1: <span id="abilityName">BLANK</span></span>
+      </div>
+    </div>
+
+    <div class="abilityDescription" id="abilityTwoDesc">
+      <div id="abilityDescHeader">
+        <span>Ability 2: <span id="abilityName">BLANK</span></span>
+      </div>
+    </div>
+
+    <div class="abilityDescription" id="abilityThreeDesc">
+      <div id="abilityDescHeader">
+        <span>Ability 3: <span id="abilityName">BLANK</span></span>
+      </div>
+    </div>
+
+    <div class="abilityDescription" id="abilityFourDesc">
+      <div id="abilityDescHeader">
+        <span>Ability 4: <span id="abilityName">BLANK</span></span>
+      </div>
+    </div>
+
+    <!-- Overlay for modal -->
+    <div id="overlay">
       <!-- Content -->
     </div>
-  </div>
 
-  <!-- Modal for changing abilities -->
-  <div class="modal" id="abilitiesModal">
-    <div class="modal-header">
-      <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
-      </span>
-      <div id="modal-searchbar" class="searchbar">
-        <span>Search for Abilities<span id="modalSearchText"></span></span>
-      </div>
-      <button onclick="closeModal('abilitiesModal')" class="modal-close-button">
-        <span>EXIT</span>
-      </button>
+    <!-- Error alert if a Build Type hasn't been selected -->
+    <div class="alert" id="buildTypeAlert">
+      <img src="images/misc/exclamation-mark-svgrepo-com.svg">
+      <span class="alertMsg">Please select a Build Type. </span>
     </div>
-    <div class="modal-body">
-      <!-- Content -->
-    </div>
-  </div>
-
-
-  <!-- Ability Descriptions when hovering over an ability -->
-  <div class="abilityDescription" id="abilityOneDesc">
-    <div id="abilityDescHeader">
-      <span>Ability 1: <span id="abilityName">BLANK</span></span>
-    </div>
-  </div>
-
-  <div class="abilityDescription" id="abilityTwoDesc">
-    <div id="abilityDescHeader">
-      <span>Ability 2: <span id="abilityName">BLANK</span></span>
-    </div>
-  </div>
-
-  <div class="abilityDescription" id="abilityThreeDesc">
-    <div id="abilityDescHeader">
-      <span>Ability 3: <span id="abilityName">BLANK</span></span>
-    </div>
-  </div>
-
-  <div class="abilityDescription" id="abilityFourDesc">
-    <div id="abilityDescHeader">
-      <span>Ability 4: <span id="abilityName">BLANK</span></span>
-    </div>
-  </div>
-
-  <!-- Overlay for modal -->
-  <div id="overlay">
-    <!-- Content -->
-  </div>
-
-  <!-- Error alert if a Build Type hasn't been selected -->
-  <div class="alert" id="buildTypeAlert">
-    <img src="images/misc/exclamation-mark-svgrepo-com.svg">
-    <span class="alertMsg">Please select a Build Type. </span>
-  </div>
 </body>
 
 </html>
