@@ -129,6 +129,9 @@ function toggleSidebar(
 
   // Update the openSidebarId
   openSidebarId = isOpen ? id : null;
+
+  // Moves mod slots to accomodate for space.
+  moveModGrid();
 }
 
 function modsToggle() {
@@ -147,6 +150,7 @@ function archonShardsToggle() {
 function toggleDropdown(id) {
   const dropdown = document.getElementById(id);
   const content = dropdown.querySelector(".dropdown-content");
+  const statsContent = document.querySelector(".stats-dropdown-content");
 
   // Essentially the toggle to the dropdown button
   if (content.classList.contains("show")) {
@@ -160,6 +164,7 @@ function toggleDropdown(id) {
     }
 
     content.classList.add("show");
+    statsContent.classList.remove("show");
   }
 }
 
@@ -247,6 +252,7 @@ window.onclick = function (event) {
 function statsToggleDropdown(id) {
   const dropdown = document.getElementById(id);
   const content = dropdown.querySelector(".stats-dropdown-content");
+  const generalDropdowns = document.getElementsByClassName("dropdown-content");
 
   // Toggle the dropdown content visibility
   if (content.classList.contains("show")) {
@@ -257,6 +263,9 @@ function statsToggleDropdown(id) {
     // Close all other dropdowns and show only the selected dropdown
     for (let i = 0; i < dropdowns.length; i++) {
       dropdowns[i].classList.remove("show");
+    }
+    for (let i = 0; i < generalDropdowns.length; i++) {
+      generalDropdowns[i].classList.remove("show");
     }
 
     content.classList.add("show");
@@ -481,3 +490,18 @@ document
   .addEventListener("click", function () {
     this.classList.toggle("active");
   });
+
+// Moves mod slots if a sidebar is open for visability
+function moveModGrid() {
+  const modGrid = document.querySelector(".modGridContainer");
+  const sidebars = document.querySelectorAll(".sidebar.open");
+
+  // No sidebars open
+  if (sidebars.length === 0) {
+    modGrid.classList.remove("active");
+  }
+  // A sidebar open
+  else {
+    modGrid.classList.add("active");
+  }
+}

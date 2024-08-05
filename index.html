@@ -738,74 +738,75 @@
       </div>
     </div>
     <!----->
-    <!-- This is a modal or "pop-up" for New Build -->
-    <div class="modal" id="buildSelectModal">
-      <div class="modal-header">
-        <div id="modal-searchbar" class="searchbar">
-          <span>Search for <span id="modalSearchText"></span></span>
-        </div>
-        <button onclick="closeModal('buildSelectModal')" class="modal-close-button">
-          <span>EXIT</span>
-        </button>
+  </div>
+  <!-- This is a modal or "pop-up" for New Build -->
+  <div class="modal" id="buildSelectModal">
+    <div class="modal-header">
+      <div id="modal-searchbar" class="searchbar">
+        <span>Search for <span id="modalSearchText"></span></span>
       </div>
-      <div class="modal-body">
-        <!-- Content -->
-      </div>
+      <button onclick="closeModal('buildSelectModal')" class="modal-close-button">
+        <span>EXIT</span>
+      </button>
     </div>
-
-    <!-- Modal for changing abilities -->
-    <div class="modal" id="abilitiesModal">
-      <div class="modal-header">
-        <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
-        </span>
-        <div id="modal-searchbar" class="searchbar">
-          <span>Search for Abilities<span id="modalSearchText"></span></span>
-        </div>
-        <button onclick="closeModal('abilitiesModal')" class="modal-close-button">
-          <span>EXIT</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Content -->
-      </div>
-    </div>
-
-
-    <!-- Ability Descriptions when hovering over an ability -->
-    <div class="abilityDescription" id="abilityOneDesc">
-      <div id="abilityDescHeader">
-        <span>Ability 1: <span id="abilityName">BLANK</span></span>
-      </div>
-    </div>
-
-    <div class="abilityDescription" id="abilityTwoDesc">
-      <div id="abilityDescHeader">
-        <span>Ability 2: <span id="abilityName">BLANK</span></span>
-      </div>
-    </div>
-
-    <div class="abilityDescription" id="abilityThreeDesc">
-      <div id="abilityDescHeader">
-        <span>Ability 3: <span id="abilityName">BLANK</span></span>
-      </div>
-    </div>
-
-    <div class="abilityDescription" id="abilityFourDesc">
-      <div id="abilityDescHeader">
-        <span>Ability 4: <span id="abilityName">BLANK</span></span>
-      </div>
-    </div>
-
-    <!-- Overlay for modal -->
-    <div id="overlay">
+    <div class="modal-body">
       <!-- Content -->
     </div>
+  </div>
 
-    <!-- Error alert if a Build Type hasn't been selected -->
-    <div class="alert" id="buildTypeAlert">
-      <img src="images/misc/exclamation-mark-svgrepo-com.svg">
-      <span class="alertMsg">Please select a Build Type. </span>
+  <!-- Modal for changing abilities -->
+  <div class="modal" id="abilitiesModal">
+    <div class="modal-header">
+      <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
+      </span>
+      <div id="modal-searchbar" class="searchbar">
+        <span>Search for Abilities<span id="modalSearchText"></span></span>
+      </div>
+      <button onclick="closeModal('abilitiesModal')" class="modal-close-button">
+        <span>EXIT</span>
+      </button>
     </div>
+    <div class="modal-body">
+      <!-- Content -->
+    </div>
+  </div>
+
+
+  <!-- Ability Descriptions when hovering over an ability -->
+  <div class="abilityDescription" id="abilityOneDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 1: <span id="abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <div class="abilityDescription" id="abilityTwoDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 2: <span id="abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <div class="abilityDescription" id="abilityThreeDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 3: <span id="abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <div class="abilityDescription" id="abilityFourDesc">
+    <div id="abilityDescHeader">
+      <span>Ability 4: <span id="abilityName">BLANK</span></span>
+    </div>
+  </div>
+
+  <!-- Overlay for modal -->
+  <div id="overlay">
+    <!-- Content -->
+  </div>
+
+  <!-- Error alert if a Build Type hasn't been selected -->
+  <div class="alert" id="buildTypeAlert">
+    <img src="images/misc/exclamation-mark-svgrepo-com.svg">
+    <span class="alertMsg">Please select a Build Type. </span>
+  </div>
 </body>
 
 </html>

@@ -536,7 +536,7 @@ body {
 
 /* Stylzing alert */
 .alert {
-  position: absolute;
+  position: fixed;
   top: 11%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
@@ -851,10 +851,9 @@ body {
 
 .modBuildSlotsContainer {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 47%;
   transform: translate(-50%, -50%);
-  border: 1px solid white;
   width: auto;
   height: auto;
   display: flex;
@@ -871,10 +870,14 @@ body {
 .modGridContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-gap: 10px;
   justify-items: center;
   align-items: center;
+}
+
+.modGridContainer.active {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .modSlots {
@@ -912,7 +915,8 @@ body {
   height: 14px;
 }
 
-.modSlotContainer {
+.modSlotContainer:hover {
+  filter: brightness(0) invert(1);
 }
 
 .modSlotContainer img {
