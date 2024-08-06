@@ -491,17 +491,23 @@ document
     this.classList.toggle("active");
   });
 
-// Moves mod slots if a sidebar is open for visability
+// Move elements if a sidebar is open for visability
 function moveModGrid() {
   const modGrid = document.querySelector(".modGridContainer");
   const sidebars = document.querySelectorAll(".sidebar.open");
+  const arcanes = document.querySelector(".arcanesContainer");
+  const archons = document.querySelector(".archonContainer");
 
   // No sidebars open
   if (sidebars.length === 0) {
     modGrid.classList.remove("active");
+    arcanes.classList.remove("active");
+    archons.classList.remove("active");
   }
   // A sidebar open
   else {
     modGrid.classList.add("active");
+    arcanes.classList.add("active");
+    archons.classList.add("active");
   }
 }

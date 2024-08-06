@@ -915,11 +915,97 @@ body {
   height: 14px;
 }
 
-.modSlotContainer:hover {
+.modSlotContainer{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.modSlotContainer img:nth-child(2){
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  pointer-events: none;
+}
+
+.modSlotContainer img:nth-child(1):hover {
+  max-width: 100%;
+  height: auto;
   filter: brightness(0) invert(1);
 }
 
-.modSlotContainer img {
-  max-width: 100%;
+.arcanesContainer{
+  position: fixed;
+  top: 68%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: auto;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.arcanesContainer.active{
+  top: 73%;
+}
+
+.arcaneSlot img{
+ width: 100px;
+ height: auto;
+ opacity: 30%;
+ cursor: pointer;
+}
+
+.arcaneSlot img:hover{
+  opacity: 70%;
+}
+
+.archonContainer{
+  position: fixed;
+  top: 85%;
+  left: 47%;
+  transform: translate(-50%, -50%);
   height: auto;
+  width: auto;
+  display: flex;
+  gap: 15px
+}
+
+.archonSlot:nth-child(1) {
+  margin-top: -100px;
+}
+
+.archonSlot:nth-child(2) {
+  margin-top: -50px;
+}
+
+.archonSlot:nth-child(3) {
+  margin-right: 0;
+}
+
+.archonSlot:nth-child(4) {
+  margin-top: -50px;
+}
+
+.archonSlot:nth-child(5) {
+  margin-top: -100px;
+}
+
+.archonContainer.active{
+  top: 90%;
+}
+
+.archonContainer img{
+  width: 100px;
+  height: 100px;
+  opacity: 50%;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.archonContainer img:hover{
+  opacity: 90%;
 }
