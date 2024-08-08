@@ -21,10 +21,10 @@ body {
 #bannerHeader {
   position: relative;
   top: -7px;
-  left: 10px;
+  left: 0.625rem;
   color: white;
   font-family: "Ailerons", sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   overflow: hidden;
   user-select: none;
 }
@@ -32,9 +32,9 @@ body {
 #warframeBannerImg {
   position: relative;
   float: left;
-  top: -20px;
-  height: 80px;
-  width: 80px;
+  top: -1.25rem;
+  height: 5rem;
+  width: 5rem;
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
@@ -42,7 +42,7 @@ body {
 
 #bannerLine {
   position: absolute;
-  top: 78px;
+  top: 4.875rem;
   left: 0;
   right: 0;
   margin: 0;
@@ -53,11 +53,11 @@ body {
 .buttonTogglesContainer {
   display: flex;
   align-items: center;
-  gap: 1px;
-  padding: 10px;
+  gap: 0.063rem;
+  padding: 0.625rem;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0.313rem;
+  right: 0.313rem;
   background-color: transparent;
 }
 
@@ -67,7 +67,7 @@ body {
 #modsToggleButton {
   font-family: "Ailerons", sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   border: none;
   display: flex;
   align-items: center;
@@ -80,31 +80,31 @@ body {
 #archonToggleButton,
 #modsToggleButton svg,
 #arcanesToggleButton img {
-  margin-right: 5px;
+  margin-right: 0.313rem;
   background-color: transparent;
   user-select: none;
 }
 
 /* Styling unactive arcane image */
 #arcanesToggleButton img {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   background-color: transparent;
   user-select: none;
 }
 
 /* Styling non-glowing atchon shard */
 #archonIconImage {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   user-select: none;
 }
 
 /* Styling the glowing archon shard */
 #archonIconImageGlow {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   opacity: 0;
   transition: 0.5s ease;
   user-select: none;
@@ -117,8 +117,8 @@ body {
 
 /* Styling anyPolarity PNG */
 #anyPolarity {
-  height: 25px;
-  width: 25px;
+  height: 1.563rem;
+  width: 1.563rem;
   transition: transform 0.5s ease;
 }
 
@@ -137,16 +137,16 @@ body {
 /* Stylizing the mods sidebar which is toggled by the mods toggle button */
 .sidebar {
   position: fixed;
-  right: -550px;
-  top: 80px;
-  width: 550px;
+  right: -34vw;
+  top: 5rem;
+  width: 34vw;
   height: 90vh;
   background-color: #181818;
   color: white;
   overflow-x: hidden;
   overflow-y: auto;
   transition: right 0.5s;
-  padding-top: 10px;
+  padding-top: 0.625rem;
   border-left: 1px solid white;
   border-bottom: 1px solid white;
 }
@@ -155,21 +155,21 @@ body {
 #modsSidebar.open,
 #arcanesSidebar.open,
 #archonSidebar.open {
-  right: 0px;
+  right: 0rem;
 }
 
 /* Styling searchbars */
 .searchbar {
-  padding: 5px;
+  padding: 0.313rem;
   background-color: #202020;
   color: gray;
   border: 1px solid #333;
-  margin: 10px;
+  margin: 0.625rem;
   width: auto;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   cursor: text;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.938rem;
 }
 
 .searchbar span {
@@ -180,8 +180,8 @@ body {
 /* Aligns and positions buttons */
 .filterContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(3.75rem, 1fr));
+  gap: 0.063rem;
 }
 
 /* Aligns buttons */
@@ -195,21 +195,21 @@ body {
 .sidebarFilter .dropdown span {
   font-family: Roboto;
   font-size: small;
-  margin-bottom: 1px;
+  margin-bottom: 0.063rem;
   user-select: none;
 }
 
 /* Stylize buttons */
 .sidebarFilter .dropdown button {
-  width: 97px;
+  width: 6.063rem;
   font-family: Roboto;
-  font-size: 10px;
+  font-size: 0.625rem;
   color: white;
-  height: 18px;
+  height: 1.125rem;
   border: none;
   display: flex;
   justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   align-items: right;
   border: 1px solid #333;
   background-color: #202020;
@@ -220,10 +220,10 @@ body {
 
 /* Down arrow image */
 .sidebarFilter .dropdown button img {
-  height: 10px;
+  height: 0.625rem;
   width: auto;
   float: right;
-  margin-left: 5px;
+  margin-left: 0.313rem;
   pointer-events: none;
   user-select: none;
 }
@@ -242,23 +242,23 @@ body {
 .dropdown-content {
   display: none;
   font: Roboto;
-  font-size: 10px;
+  font-size: 0.625rem;
   position: absolute;
   background-color: #202020;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 5px;
+  border-radius: 0.313rem;
   text-align: center;
   user-select: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* Dropdown options text */
 .dropdown-content a {
   color: white;
-  font-size: 9px;
-  width: 95px;
+  font-size: 0.563rem;
+  width: 5.938rem;
   padding: 1px 1px;
   font-family: Roboto;
   text-decoration: none;
@@ -268,20 +268,20 @@ body {
 
 /* Option image */
 #modsFilter .dropdown-content a img {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 /* Option image */
 #arcanesFilter .dropdown-content a img {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 /* Option image */
 #archonShardFilter .dropdown-content a img {
-  height: 10px;
-  width: 10px;
+  height: 0.625rem;
+  width: 0.625rem;
 }
 
 /* Hover color over a dropdown option */
@@ -290,13 +290,13 @@ body {
 }
 
 .dropdown-content #topOption {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 0.313rem;
+  border-top-right-radius: 0.313rem;
 }
 
 .dropdown-content #bottomOption {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 0.313rem;
+  border-bottom-right-radius: 0.313rem;
 }
 
 .dropdown-content.show {
@@ -306,15 +306,15 @@ body {
 /* Styling stats panel */
 .statsPanel {
   position: fixed;
-  top: 80px;
-  width: 320px;
+  top: 5rem;
+  width: 20vw;
   height: 91vh;
   background-color: #141414;
   color: white;
   overflow-x: hidden;
   overflow-y: auto;
   transition: right 0.5s;
-  padding-top: 10px;
+  padding-top: 0.625rem;
   border-right: 1px solid white;
   border-bottom: 1px solid white;
 }
@@ -332,8 +332,8 @@ body {
 /* Image container/frame */
 .statsImgContainer {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   display: flex;
   background-color: transparent;
   border: 1px solid rgb(145, 145, 145);
@@ -350,7 +350,7 @@ body {
 .statsSelect {
   padding-left: 3px;
   font-family: Roboto;
-  font-family: 15px;
+  font-family: 0.938rem;
   position: relative;
   display: inline-block;
 }
@@ -363,13 +363,13 @@ body {
 /* Styling button */
 .statsDropdownButton {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: white;
   border: 1px solid #333;
   background-color: #202020;
-  border-radius: 5px;
-  width: 150px;
-  height: 20px;
+  border-radius: 0.313rem;
+  width: 9.375rem;
+  height: 1.25rem;
   justify-content: space-between;
   align-items: right;
   display: flex;
@@ -379,13 +379,13 @@ body {
 
 .statsModalButton {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: white;
   border: 1px solid #333;
   background-color: #202020;
-  border-radius: 5px;
-  width: 150px;
-  height: 20px;
+  border-radius: 0.313rem;
+  width: 9.375rem;
+  height: 1.25rem;
   justify-content: space-between;
   align-items: right;
   display: flex;
@@ -395,9 +395,9 @@ body {
 
 /* Aligning buttons */
 .statsDropdownContainer {
-  padding-left: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  padding-bottom: 10px;
+  padding-left: 0.313rem;
+  grid-template-columns: repeat(auto-fit, minmax(3.75rem, 1fr));
+  padding-bottom: 0.625rem;
   display: flex;
   align-items: center;
 }
@@ -406,13 +406,13 @@ body {
 .stats-dropdown-content {
   display: none;
   font: Roboto;
-  font-size: 10px;
+  font-size: 0.625rem;
   position: absolute;
   background-color: #202020;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 5px;
+  border-radius: 0.313rem;
   text-align: center;
   user-select: none;
   z-index: 1;
@@ -421,8 +421,8 @@ body {
 /* Styling dropdown text */
 .stats-dropdown-content a {
   color: white;
-  font-size: 10px;
-  width: 150px;
+  font-size: 0.625rem;
+  width: 9.375rem;
   padding: 1px 1px;
   font-family: Roboto;
   text-decoration: none;
@@ -440,13 +440,13 @@ body {
 }
 
 .stats-dropdown-content #topOption {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 0.313rem;
+  border-top-right-radius: 0.313rem;
 }
 
 .stats-dropdown-content #bottomOption {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 0.313rem;
+  border-bottom-right-radius: 0.313rem;
 }
 
 /* Styling modal */
@@ -456,7 +456,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   border: 1px solid white;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   background-color: #303030;
   width: 50%;
   height: 75%;
@@ -475,7 +475,7 @@ body {
   color: black;
   background-color: white;
   border: none;
-  font-size: 15px;
+  font-size: 0.938rem;
   border-radius: 2px;
   transition: 0.5s;
 }
@@ -490,13 +490,13 @@ body {
 }
 
 .modal-header {
-  padding: 3px 10px;
+  padding: 3px 0.625rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid white;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.938rem;
 }
 
 /* Overlay typically shows up when a modal shows up, it is preventing user interaction outside of the modal */
@@ -521,12 +521,12 @@ body {
   background-color: #202020;
   color: white;
   border: 1px solid #333;
-  margin: 10px;
-  border-radius: 5px;
+  margin: 0.625rem;
+  border-radius: 0.313rem;
   cursor: text;
-  padding: 5px;
+  padding: 0.313rem;
   color: gray;
-  font-size: 15px;
+  font-size: 0.938rem;
 }
 
 #modal-searchbar span {
@@ -543,8 +543,8 @@ body {
   color: black;
   font-family: Roboto;
   background-color: #ff4f4b;
-  padding: 10px 10px;
-  border-radius: 5px;
+  padding: 0.625rem 0.625rem;
+  border-radius: 0.313rem;
   display: flex;
   align-items: center;
   pointer-events: none;
@@ -558,7 +558,7 @@ body {
 
 @keyframes slide_down {
   0% {
-    top: -50px;
+    top: -3.125rem;
     opacity: 0;
   }
 
@@ -569,17 +569,17 @@ body {
 }
 
 .alert img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.313rem;
 }
 
 /* Stylizing ability */
 .ability {
   position: relative;
   border: 1px solid white;
-  height: 45px;
-  width: 45px;
+  height: 2.813rem;
+  width: 2.813rem;
   border-radius: 2px;
   cursor: pointer;
 }
@@ -589,20 +589,20 @@ body {
   bottom: 0px;
   right: 3px;
   font-family: Roboto;
-  font-size: 13px;
+  font-size: 0.813rem;
   color: #84eab3;
   user-select: none;
   pointer-events: none;
 }
 
 .abilityContainer {
-  padding-top: 10px;
+  padding-top: 0.625rem;
   display: flex;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 /* Stylizing ability modal */
@@ -611,15 +611,15 @@ body {
 }
 
 #abilitiesModal .searchbar {
-  width: 300px;
+  width: 18.75rem;
 }
 
 /* Stylizing ability description */
 .abilityDescription {
   border: #333 solid 1px;
   background-color: #171717;
-  width: 300px;
-  height: 400px;
+  width: 18.75rem;
+  height: 25rem;
   opacity: 75%;
   position: absolute;
   display: none;
@@ -633,16 +633,16 @@ body {
 
 #abilityDescHeader {
   border-bottom: 1px white solid;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-top: 5px;
+  padding-bottom: 0.313rem;
+  padding-left: 0.313rem;
+  padding-top: 0.313rem;
   font-family: Roboto;
 }
 
 /* Stylizing item rank */
 .itemRankContainer {
-  padding-top: 10px;
-  padding-right: 5px;
+  padding-top: 0.625rem;
+  padding-right: 0.313rem;
   justify-content: space-between;
   display: flex;
 }
@@ -653,19 +653,19 @@ body {
 
 .itemRankContainer p {
   font-family: Roboto;
-  margin: 5px;
+  margin: 0.313rem;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 0.938rem;
 }
 
 .itemRankContainer input {
-  width: 50px;
-  height: 25px;
+  width: 3.125rem;
+  height: 1.563rem;
   border-radius: 2px;
   border: none;
   background-color: #202020;
   color: white;
-  font-size: 15px;
+  font-size: 0.938rem;
   font-family: Roboto;
   margin-right: 3px;
 }
@@ -673,7 +673,7 @@ body {
 /* Stylzing custom spinner */
 .custom-spinner {
   position: absolute;
-  right: 5px;
+  right: 0.313rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -681,8 +681,8 @@ body {
 }
 
 .custom-spinner button {
-  width: 15px;
-  height: 10px;
+  width: 0.938rem;
+  height: 0.625rem;
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -692,7 +692,7 @@ body {
   outline: none;
   align-items: center;
   justify-content: center;
-  font-size: 8px;
+  font-size: 0.5rem;
   user-select: none;
   visibility: hidden;
 }
@@ -734,14 +734,14 @@ body {
 .requiredResourcesContainer {
   font-family: Roboto;
   display: absolute;
-  margin-left: 10px;
-  font-size: 15px;
+  margin-left: 0.625rem;
+  font-size: 0.938rem;
 }
 
 .requiredResourcesContainer img {
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-right: 0.313rem;
   user-select: none;
 }
 
@@ -762,11 +762,11 @@ body {
   justify-content: center;
   border: rgb(145, 145, 145) solid 1px;
   background-color: #303030;
-  height: 20px;
-  width: 250px;
-  border-radius: 10px;
+  height: 1.25rem;
+  width: 15.625rem;
+  border-radius: 0.625rem;
   font-family: Roboto;
-  font-size: 13px;
+  font-size: 0.813rem;
 }
 
 /* Stylizing orokin reactor toggle */
@@ -775,23 +775,23 @@ body {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  padding-right: 5px;
+  padding-right: 0.313rem;
 }
 
 .orokinReactorContainer p,
 .applyConditionalsContainer p {
   font-family: Roboto;
-  margin: 5px;
+  margin: 0.313rem;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 0.938rem;
 }
 
 .orokinReactorToggle,
 .conditionalToggle {
   border: rgb(145, 145, 145) solid 1px;
-  width: 35px;
-  height: 20px;
-  border-radius: 50px;
+  width: 2.188rem;
+  height: 1.25rem;
+  border-radius: 3.125rem;
   background-color: #303030;
   display: flex;
   align-items: center;
@@ -803,9 +803,9 @@ body {
 .ball {
   position: absolute;
   background-color: white;
-  width: 18px;
-  height: 18px;
-  border-radius: 50px;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 3.125rem;
   transition: transform 0.1s ease;
   position: absolute;
   left: 0;
@@ -819,19 +819,19 @@ body {
 
 .orokinReactorToggle.active .ball,
 .conditionalToggle.active .ball {
-  transform: translateX(15px);
+  transform: translateX(0.938rem);
 }
 
 /* Stylizing Warframe Stats */
 .statsWarframeListContainer {
-  padding-left: 5px;
+  padding-left: 0.313rem;
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  padding-top: 0.625rem;
 }
 
 .warframeStat {
-  font-size: 15px;
+  font-size: 0.938rem;
   font-family: Roboto;
   font-weight: bold;
   justify-content: space-between;
@@ -839,7 +839,7 @@ body {
   display: flex;
   padding: 0;
   margin: 0;
-  padding-right: 5px;
+  padding-right: 0.313rem;
 }
 
 .warframeStat p,
@@ -849,6 +849,7 @@ body {
   line-height: 1.2;
 }
 
+/* Stylizing mod slots */
 .modBuildSlotsContainer {
   position: fixed;
   top: 40%;
@@ -864,14 +865,14 @@ body {
 .topSlots {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .modGridContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  grid-gap: 10px;
+  grid-gap: 0.625rem;
   justify-items: center;
   align-items: center;
 }
@@ -887,32 +888,32 @@ body {
 }
 
 .modBuildSlotsContainer .dropdown-content span {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .modBuildSlotsContainer .dropdown-content img {
-  width: 15px;
-  height: 15px;
+  width: 1.25rem;
+  height: auto;
 }
 
 .modBuildSlotsContainer .dropbutton {
   background-color: #202020;
   color: white;
   border: none;
-  width: 60px;
-  height: 25px;
-  font-size: 15px;
+  width: 3.75rem;
+  height: 1.563rem;
+  font-size: 0.938rem;
   justify-content: space-between;
   border-radius: 5px;
 }
 
 .modBuildSlotsContainer .dropdown-content a {
-  width: 60px;
+  width: 3.75rem;
 }
 
 .modBuildSlotsContainer .dropdown-content #bottomOption svg {
-  width: 14px;
-  height: 14px;
+  width: 1.25rem;
+  height: auto;
 }
 
 .modSlotContainer{
@@ -922,30 +923,36 @@ body {
   cursor: pointer;
 }
 
+.modSlotContainer img{
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 .modSlotContainer img:nth-child(2){
   position: absolute;
-  height: 50px;
-  width: 50px;
+  height: 3.125rem;
+  width:  3.125rem;
   pointer-events: none;
 }
 
 .modSlotContainer img:nth-child(1):hover {
-  max-width: 100%;
-  height: auto;
   filter: brightness(0) invert(1);
 }
 
+/* Stylizing arcane slots */
 .arcanesContainer{
   position: fixed;
   top: 68%;
   left: 47%;
   transform: translate(-50%, -50%);
-  height: 100px;
+  height: 11vh;
   width: auto;
   justify-self: center;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
+  z-index: -1;
 }
 
 .arcanesContainer.active{
@@ -953,7 +960,7 @@ body {
 }
 
 .arcaneSlot img{
- width: 100px;
+ width: 6.5vw;
  height: auto;
  opacity: 30%;
  cursor: pointer;
@@ -963,6 +970,7 @@ body {
   opacity: 70%;
 }
 
+/* Stylizing archon shard slots */
 .archonContainer{
   position: fixed;
   top: 85%;
@@ -971,15 +979,15 @@ body {
   height: auto;
   width: auto;
   display: flex;
-  gap: 15px
+  gap: 0.938rem
 }
 
 .archonSlot:nth-child(1) {
-  margin-top: -100px;
+  margin-top: -6.25rem;
 }
 
 .archonSlot:nth-child(2) {
-  margin-top: -50px;
+  margin-top: -3.125rem;
 }
 
 .archonSlot:nth-child(3) {
@@ -987,11 +995,11 @@ body {
 }
 
 .archonSlot:nth-child(4) {
-  margin-top: -50px;
+  margin-top: -3.125rem;
 }
 
 .archonSlot:nth-child(5) {
-  margin-top: -100px;
+  margin-top: -6.25rem;
 }
 
 .archonContainer.active{
@@ -999,8 +1007,8 @@ body {
 }
 
 .archonContainer img{
-  width: 100px;
-  height: 100px;
+  width: 6vw;
+  height: 11vh;
   opacity: 50%;
   transition: 0.5s ease;
   cursor: pointer;

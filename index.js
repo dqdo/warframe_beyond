@@ -191,33 +191,38 @@ function setDropdownOption(event, buttonId, optionText) {
   textSpan.style.color = buttonStyles.color;
   textSpan.style.pointerEvents = "none";
 
-  // Append the option image if it exists
-  if (optionImg && buttonId != "modBuildPolarityFilter") {
+
+  // Regular expression to match the button IDs from auraPolarityFilter to modNinePolarityFilter.
+  const modPolarityFilterRegex = /^(auraPolarityFilter|modBuildPolarityFilter|modOnePolarityFilter|modTwoPolarityFilter|modThreePolarityFilter|modFourPolarityFilter|modFivePolarityFilter|modSixPolarityFilter|modSevenPolarityFilter|modEightPolarityFilter|modNinePolarityFilter)$/;
+
+  // Append the option image if it exists.
+  if (optionImg && !modPolarityFilterRegex.test(buttonId)) {
     const newImg = document.createElement("img");
     newImg.src = optionImg.src;
-    newImg.style.height = "10px";
-    newImg.style.width = "10px";
-    newImg.style.marginRight = "3px";
+    newImg.style.height = "0.625rem";
+    newImg.style.width = "0.625rem";
+    newImg.style.marginRight = "0.188rem";
     newImg.style.pointerEvents = "none";
     button.appendChild(newImg);
   }
 
   // Specific if statement for the mod slots.
-  if (optionImg && buttonId == "modBuildPolarityFilter") {
+  // if the buttonId is equal to any of the strings in Regex then it is true.
+  if (optionImg && modPolarityFilterRegex.test(buttonId)) {
     const newImg = document.createElement("img");
     newImg.src = optionImg.src;
-    newImg.style.height = "13px";
-    newImg.style.width = "13px";
-    newImg.style.marginRight = "3px";
+    newImg.style.height = "0.938rem";
+    newImg.style.width = "0.938rem";
+    newImg.style.marginRight = "0.188rem";
     newImg.style.pointerEvents = "none";
     button.appendChild(newImg);
   }
 
   if (svg) {
     const newSVG = svg.cloneNode(true);
-    newSVG.style.height = "12px";
-    newSVG.style.width = "12px";
-    newSVG.style.marginRight = "3px";
+    newSVG.style.height = "0.938rem";
+    newSVG.style.width = "0.938rem";
+    newSVG.style.marginRight = "0.188rem";
     newSVG.style.pointerEvents = "none";
     button.appendChild(newSVG);
   }
@@ -344,7 +349,7 @@ abilities.forEach((ability, index) => {
     // Adjust the position of the description relative to the ability
     const rect = ability.getBoundingClientRect(); // Gets the size and position of the .ability  relative to the viewport
     description.style.top = `${rect.bottom}px`;
-    description.style.left = `${rect.right - 50}px`;
+    description.style.left = `${rect.right - 45}px`;
   });
 
   // Add event listener for mouseleave (when mouse leaves div)
