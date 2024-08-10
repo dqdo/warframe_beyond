@@ -47,8 +47,8 @@
   <!----->
   <!-- This div contains the mods sidebar -->
   <div id="modsSidebar" class="sidebar">
-    <div id="modsSearchbar" class="searchbar">
-      <span>Filter Mods</span>
+    <div class="search">
+      <input id = "modsSearchbar" class = "searchbar" placeholder="Filter Mods">
     </div>
     <div id="modsFilter" class="sidebarFilter">
       <!-- This div contains all the button filters for the mods -->
@@ -136,8 +136,8 @@
   <!----->
   <!-- This div contains the arcanes sidebar -->
   <div id="arcanesSidebar" class="sidebar">
-    <div id="arcanesSearchbar" class="searchbar">
-      <span>Filter Arcanes</span>
+    <div class="search">
+      <input id = "arcanesSearchbar" class = "searchbar" placeholder="Filter Arcanes">
     </div>
     <div id="arcanesFilter" class="sidebarFilter">
       <!-- This div contains all the button filters for the arcanes -->
@@ -173,8 +173,8 @@
   <!----->
   <!-- This div contains the archon shards sidebar -->
   <div id="archonSidebar" class="sidebar">
-    <div id="archonSearchbar" class="searchbar">
-      <span>Filter Archon Shards</span>
+    <div class="search">
+      <input id = "archonSearchbar" class = "searchbar" placeholder="Filter Archon Shards">
     </div>
     <div id="archonShardFilter" class="sidebarFilter">
       <!-- This div contains all the button filters for the archon shards -->
@@ -390,7 +390,7 @@
     <div class="modBuildSlotsContainer">
       <!-- Aura Slot A.K.A Mod Slot 0 -->
       <div class="topSlots">
-        <div class="modSlots">
+        <div class="modSlots" id = "auraSlot">
           <div class="modPolaritySelector">
             <div class="dropdown" id="auraPolarity">
               <button onclick="toggleDropdown('auraPolarity')" class="dropbutton" id="auraPolarityFilter">

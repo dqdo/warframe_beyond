@@ -162,14 +162,24 @@ body {
 .searchbar {
   padding: 0.313rem;
   background-color: #202020;
-  color: gray;
+  color: white;
   border: 1px solid #333;
   margin: 0.625rem;
-  width: auto;
+  width: 33vw;
   border-radius: 0.313rem;
   cursor: text;
   font-family: Roboto;
   font-size: 0.938rem;
+}
+
+.searchbar::placeholder{
+  color: gray;
+  opacity: 1;
+}
+
+.searchbar:focus{
+  border: 1px solid #bdbdbd;
+  outline: none;
 }
 
 .searchbar span {
@@ -582,6 +592,7 @@ body {
   width: 2.813rem;
   border-radius: 2px;
   cursor: pointer;
+  /* display: none; */
 }
 
 .ability span {
@@ -868,6 +879,11 @@ body {
   margin-bottom: 1.25rem;
 }
 
+
+/* #auraSlot{
+  display: none;
+} */
+
 .modGridContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -953,6 +969,7 @@ body {
   align-items: center;
   gap: 2.5rem;
   z-index: -1;
+  /* display: none; */
 }
 
 .arcanesContainer.active{
@@ -979,7 +996,8 @@ body {
   height: auto;
   width: auto;
   display: flex;
-  gap: 0.938rem
+  gap: 0.938rem;
+  /* display: none; */
 }
 
 .archonSlot:nth-child(1) {
