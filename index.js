@@ -176,6 +176,11 @@ function setDropdownOption(event, buttonId, optionText) {
   const option = event.currentTarget;
   const optionImg = option.querySelector("img");
   const svg = option.querySelector("svg");
+  const auraSlot = document.querySelector("#auraSlot");
+  const archonSlots = document.querySelector(".archonContainer");
+  const arcaneSlots = document.querySelector("#arcaneSlotOne");
+  const ability = document.querySelector(".abilityContainer");
+  let auraImage = document.querySelector('.modSlotContainer img:nth-child(2)');
 
   // Clear existing button text except the arrow image
   button.innerHTML = "";
@@ -191,9 +196,8 @@ function setDropdownOption(event, buttonId, optionText) {
   textSpan.style.color = buttonStyles.color;
   textSpan.style.pointerEvents = "none";
 
-
   // Regular expression to match the button IDs from auraPolarityFilter to modNinePolarityFilter.
-  const modPolarityFilterRegex = /^(auraPolarityFilter|modBuildPolarityFilter|modOnePolarityFilter|modTwoPolarityFilter|modThreePolarityFilter|modFourPolarityFilter|modFivePolarityFilter|modSixPolarityFilter|modSevenPolarityFilter|modEightPolarityFilter|modNinePolarityFilter)$/;
+  const modPolarityFilterRegex = /^(auraPolarityFilter|exilusPolarityFilter|modTwoPolarityFilter|modThreePolarityFilter|modFourPolarityFilter|modFivePolarityFilter|modSixPolarityFilter|modSevenPolarityFilter|modEightPolarityFilter|modNinePolarityFilter)$/;
 
   // Append the option image if it exists.
   if (optionImg && !modPolarityFilterRegex.test(buttonId)) {
@@ -231,6 +235,23 @@ function setDropdownOption(event, buttonId, optionText) {
   button.appendChild(textSpan);
   button.appendChild(arrowImg);
 
+  if (optionText === "Warframe" && buttonId === ("buildTypeSelect")){
+    auraSlot.classList.add("show");
+    arcaneSlots.classList.add("show");
+    archonSlots.classList.add("show");
+    ability.classList.add("show");
+    auraImage.src = "images/mods/IconAura.png";
+  }
+  else if (optionText === "Melee Weapon" && buttonId === ("buildTypeSelect")){
+    auraSlot.classList.add("show");
+    auraImage.src = "images/mods/IconStance.png";
+  }
+  else if (buttonId === ("buildTypeSelect")){
+    auraSlot.classList.remove("show");
+    arcaneSlots.classList.remove("show");
+    archonSlots.classList.remove("show");
+    ability.classList.remove("show");
+  }
   // Close the dropdown after an option is selected
   const dropdownContent = button.parentElement.querySelector(
     ".dropdown-content, .stats-dropdown-content"
@@ -304,6 +325,7 @@ function openNewBuildModal(modalID, buildTypeSelectedID) {
     modal.classList.add("active");
     closeAllSidebars();
     searchBarText.innerText = selectedText;
+
   } else {
     alert.classList.add("show");
     setTimeout(() => {
@@ -311,6 +333,7 @@ function openNewBuildModal(modalID, buildTypeSelectedID) {
     }, 2000);
   }
 }
+
 
 // Closes modal (usually from a click of a button)
 function closeModal(modalID) {

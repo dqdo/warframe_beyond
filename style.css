@@ -592,7 +592,6 @@ body {
   width: 2.813rem;
   border-radius: 2px;
   cursor: pointer;
-  /* display: none; */
 }
 
 .ability span {
@@ -614,6 +613,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.625rem;
+  display: none;
+}
+
+.abilityContainer.show{
+  display: flex;
 }
 
 /* Stylizing ability modal */
@@ -880,9 +884,14 @@ body {
 }
 
 
-/* #auraSlot{
+#auraSlot{
   display: none;
-} */
+}
+
+#auraSlot.show{
+  display: flex;
+} 
+
 
 .modGridContainer {
   display: grid;
@@ -937,6 +946,7 @@ body {
   align-items: center;
   display: flex;
   cursor: pointer;
+  position: relative;
 }
 
 .modSlotContainer img{
@@ -969,7 +979,14 @@ body {
   align-items: center;
   gap: 2.5rem;
   z-index: -1;
-  /* display: none; */
+}
+
+#arcaneSlotOne{
+  display: none;
+}
+
+#arcaneSlotOne.show{
+  display: flex;
 }
 
 .arcanesContainer.active{
@@ -997,7 +1014,11 @@ body {
   width: auto;
   display: flex;
   gap: 0.938rem;
-  /* display: none; */
+  display: none;
+}
+
+.archonContainer.show{
+  display: flex;
 }
 
 .archonSlot:nth-child(1) {
