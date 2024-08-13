@@ -773,8 +773,8 @@
   <!-- This is a modal or "pop-up" for New Build -->
   <div class="modal" id="buildSelectModal">
     <div class="modal-header">
-      <div id="modal-searchbar" class="searchbar">
-        <span>Search for <span id="modalSearchText"></span></span>
+      <div class="search">
+        <input id = "modalSearchbar" class = "searchbar" placeholder="Search for">
       </div>
       <button onclick="closeModal('buildSelectModal')" class="modal-close-button">
         <span>EXIT</span>
@@ -790,8 +790,8 @@
     <div class="modal-header">
       <span>Replace [<span id="currentAbility">BLANK</span>] (<span id="abilityNum">#</span>) with Helminth Ability:
       </span>
-      <div id="modal-searchbar" class="searchbar">
-        <span>Search for Abilities<span id="modalSearchText"></span></span>
+      <div class="search">
+        <input id = "modalAbilitySearchbar" class = "searchbar" placeholder="Search for Abilities">
       </div>
       <button onclick="closeModal('abilitiesModal')" class="modal-close-button">
         <span>EXIT</span>

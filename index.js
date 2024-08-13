@@ -92,6 +92,7 @@ function closeAllSidebars() {
   if (openSidebarId === "archonSidebar") {
     archonShardGlow(false);
   }
+
   openSidebarId = null; // Null since sidebars are closed
 }
 
@@ -180,7 +181,7 @@ function setDropdownOption(event, buttonId, optionText) {
   const archonSlots = document.querySelector(".archonContainer");
   const arcaneSlots = document.querySelector("#arcaneSlotOne");
   const ability = document.querySelector(".abilityContainer");
-  let auraImage = document.querySelector('.modSlotContainer img:nth-child(2)');
+  let auraImage = document.querySelector(".modSlotContainer img:nth-child(2)");
 
   // Clear existing button text except the arrow image
   button.innerHTML = "";
@@ -197,7 +198,8 @@ function setDropdownOption(event, buttonId, optionText) {
   textSpan.style.pointerEvents = "none";
 
   // Regular expression to match the button IDs from auraPolarityFilter to modNinePolarityFilter.
-  const modPolarityFilterRegex = /^(auraPolarityFilter|exilusPolarityFilter|modTwoPolarityFilter|modThreePolarityFilter|modFourPolarityFilter|modFivePolarityFilter|modSixPolarityFilter|modSevenPolarityFilter|modEightPolarityFilter|modNinePolarityFilter)$/;
+  const modPolarityFilterRegex =
+    /^(auraPolarityFilter|exilusPolarityFilter|modTwoPolarityFilter|modThreePolarityFilter|modFourPolarityFilter|modFivePolarityFilter|modSixPolarityFilter|modSevenPolarityFilter|modEightPolarityFilter|modNinePolarityFilter)$/;
 
   // Append the option image if it exists.
   if (optionImg && !modPolarityFilterRegex.test(buttonId)) {
@@ -235,22 +237,26 @@ function setDropdownOption(event, buttonId, optionText) {
   button.appendChild(textSpan);
   button.appendChild(arrowImg);
 
-  if (optionText === "Warframe" && buttonId === ("buildTypeSelect")){
+  if (optionText === "Warframe" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
     arcaneSlots.classList.add("show");
     archonSlots.classList.add("show");
     ability.classList.add("show");
     auraImage.src = "images/mods/IconAura.png";
-  }
-  else if (optionText === "Melee Weapon" && buttonId === ("buildTypeSelect")){
+    closeAllSidebars();
+  } else if (optionText === "Melee Weapon" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
     auraImage.src = "images/mods/IconStance.png";
-  }
-  else if (buttonId === ("buildTypeSelect")){
+    arcaneSlots.classList.remove("show");
+    archonSlots.classList.remove("show");
+    ability.classList.remove("show");
+    closeAllSidebars();
+  } else if (buttonId === "buildTypeSelect") {
     auraSlot.classList.remove("show");
     arcaneSlots.classList.remove("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
+    closeAllSidebars();
   }
   // Close the dropdown after an option is selected
   const dropdownContent = button.parentElement.querySelector(
@@ -317,15 +323,14 @@ function openNewBuildModal(modalID, buildTypeSelectedID) {
   const alert = document.getElementById("buildTypeAlert");
   const buildTypeSelectButton = document.getElementById(buildTypeSelectedID);
   const selectedText = buildTypeSelectButton.textContent.trim();
-  const searchBarText = document.getElementById("modalSearchText");
+  const searchBarText = document.getElementById("modalSearchbar");
 
   // Must select an option from the Build Type dropdown in order for the modal to show or else an alert message will show up.
   if (selectedText !== "Select") {
     overlay.classList.add("active");
     modal.classList.add("active");
     closeAllSidebars();
-    searchBarText.innerText = selectedText;
-
+    searchBarText.placeholder = `Search for ${selectedText}`;
   } else {
     alert.classList.add("show");
     setTimeout(() => {
@@ -333,7 +338,6 @@ function openNewBuildModal(modalID, buildTypeSelectedID) {
     }, 2000);
   }
 }
-
 
 // Closes modal (usually from a click of a button)
 function closeModal(modalID) {
@@ -352,6 +356,8 @@ function openAbilitiesModal(event, modalID) {
 
   const modal = document.getElementById(modalID);
   const overlay = document.getElementById("overlay");
+
+  closeAllSidebars();
 
   overlay.classList.add("active");
   modal.classList.add("active");
