@@ -109,6 +109,11 @@ function toggleSidebar(
     closeAllSidebars();
   }
 
+ // If the same sidebar is already open and the click is from a slot image, do not close it
+  if (openSidebarId === id && isSlot) {
+    return; // Prevent toggling if the same sidebar is already open due to a slot click
+  }
+
   // Toggle the sidebar open/close
   const isOpen = sidebar.classList.toggle("open");
 
@@ -134,6 +139,21 @@ function toggleSidebar(
   // Moves mod slots to accomodate for space.
   moveModGrid();
 }
+
+document.getElementById("modsToggleButton").addEventListener("click", () => {
+  isSlot = false; // Reset flag for sidebar button click
+  modsToggle();
+});
+
+document.getElementById("arcanesToggleButton").addEventListener("click", () => {
+  isSlot = false; // Reset flag for sidebar button click
+  arcanesToggle();
+});
+
+document.getElementById("archonToggleButton").addEventListener("click", () => {
+  isSlot = false; // Reset flag for sidebar button click
+  archonShardsToggle();
+});
 
 function modsToggle() {
   toggleSidebar("modsSidebar", true, false, false);
@@ -545,3 +565,51 @@ function moveModGrid() {
     archons.classList.add("active");
   }
 }
+
+let previousSlot = null;
+const modSlot = document.querySelectorAll(".modSlotContainer img:nth-child(1)");
+const arcaneSlot = document.querySelectorAll(".arcaneSlot img");
+const archonSlot = document.querySelectorAll(".archonSlot img");
+const slotImages = [...modSlot, ...arcaneSlot, ...archonSlot];
+const modsSidebar = document.querySelector("#modsSidebar");
+const arcanesSidebar = document.querySelector("#arcanesSidebar");
+const archonSidebar = document.querySelector("#archonSidebar");
+
+let isSlot = false;
+
+slotImages.forEach((slotImage) => {
+  slotImage.addEventListener("click", function () {
+    isSlot = true;
+    // Reset style for previously selected slot
+    if (previousSlot) {
+      if (Array.from(modSlot).includes(previousSlot)) {
+        previousSlot.style.filter = "";
+      } else if (Array.from(arcaneSlot).includes(previousSlot)) {
+        previousSlot.style.opacity = "";
+      } else if (Array.from(archonSlot).includes(previousSlot)) {
+        previousSlot.style.opacity = "";
+      }
+    }
+
+    // Apply the correct style to the currently clicked element
+    if (Array.from(modSlot).includes(this)) {
+      this.style.filter = "brightness(0) invert(1)";
+      if (openSidebarId !== "modsSidebar") {
+        modsToggle();
+      }
+    } else if (Array.from(arcaneSlot).includes(this)) {
+      this.style.opacity = "70%";
+      if (openSidebarId !== "arcanesSidebar") {
+        arcanesToggle();
+      }
+    } else if (Array.from(archonSlot).includes(this)) {
+      this.style.opacity = "90%";
+      if (openSidebarId !== "archonSidebar") {
+        archonShardsToggle();
+      }
+    }
+
+    // Update the previousSlot
+    previousSlot = this;
+  });
+});
