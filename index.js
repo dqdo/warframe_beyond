@@ -93,6 +93,8 @@ function closeAllSidebars() {
     archonShardGlow(false);
   }
 
+  moveModGrid();
+
   openSidebarId = null; // Null since sidebars are closed
 }
 
@@ -111,8 +113,11 @@ function toggleSidebar(
 
  // If the same sidebar is already open and the click is from a slot image, do not close it
   if (openSidebarId === id && isSlot) {
-    return; // Prevent toggling if the same sidebar is already open due to a slot click
+    return; // Prevent toggling (off) if the same sidebar is already open due to a slot click.
   }
+
+  // Resets previous slot style, this is so when toggling off the sidebar buttons, the slot will be unhighlighted. 
+  resetSlotStyles(slotImages);
 
   // Toggle the sidebar open/close
   const isOpen = sidebar.classList.toggle("open");
@@ -140,6 +145,7 @@ function toggleSidebar(
   moveModGrid();
 }
 
+// Toggle buttons for sidebars
 document.getElementById("modsToggleButton").addEventListener("click", () => {
   isSlot = false; // Reset flag for sidebar button click
   modsToggle();
@@ -257,12 +263,14 @@ function setDropdownOption(event, buttonId, optionText) {
   button.appendChild(textSpan);
   button.appendChild(arrowImg);
 
+  // Adjust slots according to what is selected in Build Type
   if (optionText === "Warframe" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
     arcaneSlots.classList.add("show");
     archonSlots.classList.add("show");
     ability.classList.add("show");
     auraImage.src = "images/mods/IconAura.png";
+    resetSlotStyles(slotImages);
     closeAllSidebars();
   } else if (optionText === "Melee Weapon" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
@@ -270,12 +278,14 @@ function setDropdownOption(event, buttonId, optionText) {
     arcaneSlots.classList.remove("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
+    resetSlotStyles(slotImages);
     closeAllSidebars();
   } else if (buttonId === "buildTypeSelect") {
     auraSlot.classList.remove("show");
     arcaneSlots.classList.remove("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
+    resetSlotStyles(slotImages);
     closeAllSidebars();
   }
   // Close the dropdown after an option is selected
@@ -566,7 +576,9 @@ function moveModGrid() {
   }
 }
 
+// previousSlot keeps track of the previous slot that was clicked.
 let previousSlot = null;
+
 const modSlot = document.querySelectorAll(".modSlotContainer img:nth-child(1)");
 const arcaneSlot = document.querySelectorAll(".arcaneSlot img");
 const archonSlot = document.querySelectorAll(".archonSlot img");
@@ -575,21 +587,16 @@ const modsSidebar = document.querySelector("#modsSidebar");
 const arcanesSidebar = document.querySelector("#arcanesSidebar");
 const archonSidebar = document.querySelector("#archonSidebar");
 
+// isSlot tracks if a slot is clicked.
 let isSlot = false;
 
+// If a build slot is clicked, then it will be highlighted. Only one slot can be highlighted at a time. 
 slotImages.forEach((slotImage) => {
   slotImage.addEventListener("click", function () {
     isSlot = true;
-    // Reset style for previously selected slot
-    if (previousSlot) {
-      if (Array.from(modSlot).includes(previousSlot)) {
-        previousSlot.style.filter = "";
-      } else if (Array.from(arcaneSlot).includes(previousSlot)) {
-        previousSlot.style.opacity = "";
-      } else if (Array.from(archonSlot).includes(previousSlot)) {
-        previousSlot.style.opacity = "";
-      }
-    }
+
+    // Reset style for previously selected slot.
+    resetSlotStyles(slotImages);
 
     // Apply the correct style to the currently clicked element
     if (Array.from(modSlot).includes(this)) {
@@ -613,3 +620,15 @@ slotImages.forEach((slotImage) => {
     previousSlot = this;
   });
 });
+
+function resetSlotStyles(slotImages){
+  if (previousSlot) {
+    if (Array.from(modSlot).includes(previousSlot)) {
+      previousSlot.style.filter = "";
+    } else if (Array.from(arcaneSlot).includes(previousSlot)) {
+      previousSlot.style.opacity = "";
+    } else if (Array.from(archonSlot).includes(previousSlot)) {
+      previousSlot.style.opacity = "";
+    }
+  }
+}

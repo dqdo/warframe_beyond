@@ -246,6 +246,11 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
+  
+}
+
+.dropdown button{
+  cursor: pointer;
 }
 
 /* Dropdown settings */
@@ -910,7 +915,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  user-select: none;
+  cursor: pointer;
 }
+
 
 .modBuildSlotsContainer .dropdown-content span {
   font-size: 1.25rem;
@@ -953,6 +961,7 @@ body {
   width: 100%;
   max-width: 100%;
   height: auto;
+  user-select: none;
 }
 
 .modSlotContainer img:nth-child(2){
@@ -998,6 +1007,7 @@ body {
  height: auto;
  opacity: 30%;
  cursor: pointer;
+ user-select: none;
 }
 
 .arcaneSlot img:hover{
@@ -1051,6 +1061,7 @@ body {
   opacity: 50%;
   transition: 0.5s ease;
   cursor: pointer;
+  user-select: none;
 }
 
 .archonContainer img:hover{
