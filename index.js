@@ -195,6 +195,11 @@ function toggleDropdown(id) {
   }
 }
 
+// Aquires the original text of the dropdown button.
+document.querySelectorAll('.dropbutton').forEach(button => {
+  button.setAttribute('data-original-content', button.innerHTML);
+});
+
 // Whichever option is picked, it will appear on the button
 function setDropdownOption(event, buttonId, optionText) {
   event.preventDefault();
@@ -270,6 +275,7 @@ function setDropdownOption(event, buttonId, optionText) {
     archonSlots.classList.add("show");
     ability.classList.add("show");
     auraImage.src = "images/mods/IconAura.png";
+    resetOptions();
     resetSlotStyles(slotImages);
     closeAllSidebars();
   } else if (optionText === "Melee Weapon" && buttonId === "buildTypeSelect") {
@@ -278,6 +284,7 @@ function setDropdownOption(event, buttonId, optionText) {
     arcaneSlots.classList.remove("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
+    resetOptions();
     resetSlotStyles(slotImages);
     closeAllSidebars();
   } else if (buttonId === "buildTypeSelect") {
@@ -285,6 +292,7 @@ function setDropdownOption(event, buttonId, optionText) {
     arcaneSlots.classList.remove("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
+    resetOptions();
     resetSlotStyles(slotImages);
     closeAllSidebars();
   }
@@ -295,6 +303,14 @@ function setDropdownOption(event, buttonId, optionText) {
   if (dropdownContent) {
     dropdownContent.classList.remove("show");
   }
+}
+
+// Reset any selected dropdown option.
+function resetOptions() {
+  document.querySelectorAll('.dropbutton').forEach(button => {
+    const originalContent = button.getAttribute('data-original-content');
+    button.innerHTML = originalContent;
+  });
 }
 
 // Ensures that clicking outside of a dropdown button will close any open dropdowns.
