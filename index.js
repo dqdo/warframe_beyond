@@ -27,11 +27,11 @@ let arcaneTimeouts = []; // To store the timeouts for arcane animation
 // Animation for when the arcanes sidebar button is toggled
 function arcaneIconAnimation(start) {
   const images = [
-    "images/arcanes/arcane_icon_inactive.png",
-    "images/arcanes/arcane_icon_active1.png",
-    "images/arcanes/arcane_icon_active2.png",
-    "images/arcanes/arcane_icon_active3.png",
-    "images/arcanes/arcane_icon_activefull.png",
+    "assets/images/arcanes/arcane_icon_inactive.png",
+    "assets/images/arcanes/arcane_icon_active1.png",
+    "assets/images/arcanes/arcane_icon_active2.png",
+    "assets/images/arcanes/arcane_icon_active3.png",
+    "assets/images/arcanes/arcane_icon_activefull.png",
   ];
 
   // Clear previous timeouts to prevent multiple animations running simultaneously.
@@ -274,18 +274,20 @@ function setDropdownOption(event, buttonId, optionText) {
     arcaneSlots.classList.add("show");
     archonSlots.classList.add("show");
     ability.classList.add("show");
-    auraImage.src = "images/mods/IconAura.png";
+    auraImage.src = "assets/images/mods/IconAura.png";
     resetOptions();
     resetSlotStyles(slotImages);
+    clearSearchbar();
     closeAllSidebars();
   } else if (optionText === "Melee Weapon" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
-    auraImage.src = "images/mods/IconStance.png";
+    auraImage.src = "assets/images/mods/IconStance.png";
     arcaneSlots.classList.remove("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
     resetOptions();
     resetSlotStyles(slotImages);
+    clearSearchbar();
     closeAllSidebars();
   } else if (buttonId === "buildTypeSelect") {
     auraSlot.classList.remove("show");
@@ -294,6 +296,7 @@ function setDropdownOption(event, buttonId, optionText) {
     ability.classList.remove("show");
     resetOptions();
     resetSlotStyles(slotImages);
+    clearSearchbar();
     closeAllSidebars();
   }
   // Close the dropdown after an option is selected
@@ -303,6 +306,13 @@ function setDropdownOption(event, buttonId, optionText) {
   if (dropdownContent) {
     dropdownContent.classList.remove("show");
   }
+}
+
+function clearSearchbar(){
+  const searchbars = document.querySelectorAll('.searchbar');
+  searchbars.forEach((searchbar)=>{
+    searchbar.value = '';
+  });
 }
 
 // Reset any selected dropdown option.
