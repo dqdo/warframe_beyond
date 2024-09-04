@@ -111,12 +111,12 @@ function toggleSidebar(
     closeAllSidebars();
   }
 
- // If the same sidebar is already open and the click is from a slot image, do not close it
+  // If the same sidebar is already open and the click is from a slot image, do not close it
   if (openSidebarId === id && isSlot) {
     return; // Prevent toggling (off) if the same sidebar is already open due to a slot click.
   }
 
-  // Resets previous slot style, this is so when toggling off the sidebar buttons, the slot will be unhighlighted. 
+  // Resets previous slot style, this is so when toggling off the sidebar buttons, the slot will be unhighlighted.
   resetSlotStyles(slotImages);
 
   // Toggle the sidebar open/close
@@ -196,8 +196,8 @@ function toggleDropdown(id) {
 }
 
 // Aquires the original text of the dropdown button.
-document.querySelectorAll('.dropbutton').forEach(button => {
-  button.setAttribute('data-original-content', button.innerHTML);
+document.querySelectorAll(".dropbutton").forEach((button) => {
+  button.setAttribute("data-original-content", button.innerHTML);
 });
 
 // Whichever option is picked, it will appear on the button
@@ -209,8 +209,10 @@ function setDropdownOption(event, buttonId, optionText) {
   const optionImg = option.querySelector("img");
   const svg = option.querySelector("svg");
   const auraSlot = document.querySelector("#auraSlot");
+  const exilusSlot = document.querySelector("#exilusSlot");
   const archonSlots = document.querySelector(".archonContainer");
   const arcaneSlots = document.querySelector("#arcaneSlotOne");
+  const arcaneSlotsTwo = document.querySelector("#arcaneSlotTwo");
   const ability = document.querySelector(".abilityContainer");
   let auraImage = document.querySelector(".modSlotContainer img:nth-child(2)");
 
@@ -271,7 +273,9 @@ function setDropdownOption(event, buttonId, optionText) {
   // Adjust slots according to what is selected in Build Type
   if (optionText === "Warframe" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
+    exilusSlot.classList.add("show");
     arcaneSlots.classList.add("show");
+    arcaneSlotsTwo.classList.add("show");
     archonSlots.classList.add("show");
     ability.classList.add("show");
     auraImage.src = "assets/images/mods/IconAura.png";
@@ -279,25 +283,32 @@ function setDropdownOption(event, buttonId, optionText) {
     resetSlotStyles(slotImages);
     clearSearchbar();
     closeAllSidebars();
+    generateModSlots(9);
   } else if (optionText === "Melee Weapon" && buttonId === "buildTypeSelect") {
     auraSlot.classList.add("show");
+    exilusSlot.classList.add("show");
     auraImage.src = "assets/images/mods/IconStance.png";
     arcaneSlots.classList.remove("show");
+    arcaneSlotsTwo.classList.add("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
     resetOptions();
     resetSlotStyles(slotImages);
     clearSearchbar();
     closeAllSidebars();
+    generateModSlots(9);
   } else if (buttonId === "buildTypeSelect") {
+    exilusSlot.classList.add("show");
     auraSlot.classList.remove("show");
     arcaneSlots.classList.remove("show");
+    arcaneSlotsTwo.classList.add("show");
     archonSlots.classList.remove("show");
     ability.classList.remove("show");
     resetOptions();
     resetSlotStyles(slotImages);
     clearSearchbar();
     closeAllSidebars();
+    generateModSlots(9);
   }
   // Close the dropdown after an option is selected
   const dropdownContent = button.parentElement.querySelector(
@@ -308,17 +319,17 @@ function setDropdownOption(event, buttonId, optionText) {
   }
 }
 
-function clearSearchbar(){
-  const searchbars = document.querySelectorAll('.searchbar');
-  searchbars.forEach((searchbar)=>{
-    searchbar.value = '';
+function clearSearchbar() {
+  const searchbars = document.querySelectorAll(".searchbar");
+  searchbars.forEach((searchbar) => {
+    searchbar.value = "";
   });
 }
 
 // Reset any selected dropdown option.
 function resetOptions() {
-  document.querySelectorAll('.dropbutton').forEach(button => {
-    const originalContent = button.getAttribute('data-original-content');
+  document.querySelectorAll(".dropbutton").forEach((button) => {
+    const originalContent = button.getAttribute("data-original-content");
     button.innerHTML = originalContent;
   });
 }
@@ -616,45 +627,156 @@ const archonSidebar = document.querySelector("#archonSidebar");
 // isSlot tracks if a slot is clicked.
 let isSlot = false;
 
-// If a build slot is clicked, then it will be highlighted. Only one slot can be highlighted at a time. 
-slotImages.forEach((slotImage) => {
-  slotImage.addEventListener("click", function () {
-    isSlot = true;
+// Sets up build slot event listeners
+function setupSlotListeners() {
+  const modSlot = document.querySelectorAll(
+    ".modSlotContainer img:nth-child(1)"
+  );
+  const arcaneSlot = document.querySelectorAll(".arcaneSlot img");
+  const archonSlot = document.querySelectorAll(".archonSlot img");
+  const slotImages = [...modSlot, ...arcaneSlot, ...archonSlot];
 
-    // Reset style for previously selected slot.
-    resetSlotStyles(slotImages);
-
-    // Apply the correct style to the currently clicked element
-    if (Array.from(modSlot).includes(this)) {
-      this.style.filter = "brightness(0) invert(1)";
-      if (openSidebarId !== "modsSidebar") {
-        modsToggle();
-      }
-    } else if (Array.from(arcaneSlot).includes(this)) {
-      this.style.opacity = "70%";
-      if (openSidebarId !== "arcanesSidebar") {
-        arcanesToggle();
-      }
-    } else if (Array.from(archonSlot).includes(this)) {
-      this.style.opacity = "90%";
-      if (openSidebarId !== "archonSidebar") {
-        archonShardsToggle();
-      }
-    }
-
-    // Update the previousSlot
-    previousSlot = this;
+  // Add new listeners to all slot images
+  slotImages.forEach((slotImage) => {
+    slotImage.addEventListener("click", handleSlotClick);
   });
-});
+}
 
-function resetSlotStyles(slotImages){
+// If a build slot is clicked, then it will be highlighted. Only one slot can be highlighted at a time.
+function handleSlotClick() {
+  // Mark that a slot is clicked
+  isSlot = true;
+
+  // Get the updated slot images
+  const modSlot = document.querySelectorAll(
+    ".modSlotContainer img:nth-child(1)"
+  );
+  const arcaneSlot = document.querySelectorAll(".arcaneSlot img");
+  const archonSlot = document.querySelectorAll(".archonSlot img");
+  const slotImages = [...modSlot, ...arcaneSlot, ...archonSlot];
+
+  // Reset style for previously selected slot
+  resetSlotStyles(slotImages);
+
+  // Apply the correct style to the currently clicked element
+  if (Array.from(modSlot).includes(this)) {
+    this.style.filter = "brightness(0) invert(1)";
+    if (openSidebarId !== "modsSidebar") {
+      modsToggle();
+    }
+  } else if (Array.from(arcaneSlot).includes(this)) {
+    this.style.opacity = "70%";
+    if (openSidebarId !== "arcanesSidebar") {
+      arcanesToggle();
+    }
+  } else if (Array.from(archonSlot).includes(this)) {
+    this.style.opacity = "90%";
+    if (openSidebarId !== "archonSidebar") {
+      archonShardsToggle();
+    }
+  }
+
+  // Update the previousSlot
+  previousSlot = this;
+}
+
+// Unhighlights slots
+function resetSlotStyles(slotImages) {
+  // Reset the style for the previously highlighted slot
   if (previousSlot) {
-    if (Array.from(modSlot).includes(previousSlot)) {
+    if (
+      Array.from(
+        document.querySelectorAll(".modSlotContainer img:nth-child(1)")
+      ).includes(previousSlot)
+    ) {
       previousSlot.style.filter = "";
-    } else if (Array.from(arcaneSlot).includes(previousSlot)) {
+    } else if (
+      Array.from(document.querySelectorAll(".arcaneSlot img")).includes(
+        previousSlot
+      )
+    ) {
       previousSlot.style.opacity = "";
-    } else if (Array.from(archonSlot).includes(previousSlot)) {
+    } else if (
+      Array.from(document.querySelectorAll(".archonSlot img")).includes(
+        previousSlot
+      )
+    ) {
       previousSlot.style.opacity = "";
     }
   }
+}
+
+setupSlotListeners();
+
+// HTML for a basic mod slot
+function createModSlot(id) {
+  return `
+    <div class="modSlots">
+      <div class="modPolaritySelector">
+        <div class="dropdown" id="${id}Polarity">
+          <button onclick="toggleDropdown('${id}Polarity')" class="dropbutton" id="${id}PolarityFilter">
+            <span>--- </span>
+            <img id="downArrowImg" src="assets/images/misc/down-arrow-svgrepo-com.svg" />
+          </button>
+          <div class="dropdown-content">
+            <a id="topOption" href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '--- ')">
+              <span>---</span>
+            </a>
+            <a href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/madurai_symbol.png" />
+            </a>
+            <a href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/vazarin_symbol.png" />
+            </a>
+            <a href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/naramon_symbol.png" />
+            </a>
+            <a href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/zenurik_symbol.png" />
+            </a>
+            <a href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/penjaga_symbol.png" />
+            </a>
+            <a href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/unairu_symbol.png" />
+            </a>
+            <a id="bottomOption" href="#" onclick="setDropdownOption(event, '${id}PolarityFilter', '')">
+              <img src="assets/images/mods/polarities/umbra_symbol.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modSlotContainer">
+        <img src="assets/images/mods/mod_slot.png" onclick="modsToggle()">
+      </div>
+    </div>
+  `;
+}
+
+// Generates mod slots (9 mod slots specifically)
+function generateModSlots(numberOfSlots) {
+  const container = document.querySelector(".modGridContainer");
+
+  const nums = [
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+  ];
+
+  if (container) {
+    container.innerHTML = ""; // Clear any existing content
+
+    // Loop to create each HTML mod slot
+    for (let i = 2; i <= numberOfSlots; i++) {
+      container.innerHTML += createModSlot(`mod${nums[i]}`);
+    }
+  }
+
+  // Update Event Build Slot Listeners
+  setupSlotListeners();
 }

@@ -897,6 +897,15 @@ body {
   display: flex;
 } 
 
+#exilusSlot{
+  display: none;
+}
+
+#exilusSlot.show{
+  display: flex;
+}
+
+
 
 .modGridContainer {
   display: grid;
@@ -995,6 +1004,14 @@ body {
 }
 
 #arcaneSlotOne.show{
+  display: flex;
+}
+
+#arcaneSlotTwo{
+  display: none;
+}
+
+#arcaneSlotTwo.show{
   display: flex;
 }
 
