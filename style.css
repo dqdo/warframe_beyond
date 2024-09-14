@@ -20,7 +20,7 @@ body {
 /* Banner header which includes the warframe logo and the "Warframe Beyond" header */
 #bannerHeader {
   position: relative;
-  top: -7px;
+  top: -0.438rem;
   left: 0.625rem;
   color: white;
   font-family: "Ailerons", sans-serif;
@@ -29,10 +29,25 @@ body {
   user-select: none;
 }
 
+#credits{
+  position: relative;
+  font-size: 0.6rem;
+  color: white;
+  top: 2.6rem;
+  left: 1rem;
+  font-family: Roboto;
+  user-select: none;
+}
+
+.banner{
+  display: flex;
+  overflow: hidden;
+}
+
 #warframeBannerImg {
   position: relative;
   float: left;
-  top: -1.25rem;
+  top: 0.25rem;
   height: 5rem;
   width: 5rem;
   -moz-user-select: none;
@@ -904,8 +919,6 @@ body {
 #exilusSlot.show{
   display: flex;
 }
-
-
 
 .modGridContainer {
   display: grid;
